@@ -54,25 +54,28 @@ class CreateAccount extends StatelessWidget {
           height: 200.h
           )),
           SizedBox(height: 20.h,),
-           Container(
-                  width: 285.w,
-                  height: 70.h,
-                  decoration:
-                      BoxDecoration(color: Color(0xffe6d9e8), boxShadow: [
-                    BoxShadow(
-                        offset: const Offset(0, 6),
-                        color: MyTheme.greyColor,
-                        blurStyle: BlurStyle.inner),
-                  ]),
-                  child: Padding(
-                    padding: const EdgeInsets.all(25.0),
-                    child: Text(
-                      "UserName",
-                      style: getSemiBoldBlack16Style(),
-                      textAlign: TextAlign.justify,
+           Padding(
+             padding: const EdgeInsets.all(10.0),
+             child: Container(
+                    width: 285.w,
+                    height: 70.h,
+                    decoration:
+                        BoxDecoration(color: Color(0xffe6d9e8), boxShadow: [
+                      BoxShadow(
+                          offset: const Offset(0, 6),
+                          color: MyTheme.greyColor,
+                          blurStyle: BlurStyle.inner),
+                    ]),
+                    child: Padding(
+                      padding: const EdgeInsets.all(25.0),
+                      child: Text(
+                        "UserName",
+                        style: getSemiBoldBlack16Style(),
+                        textAlign: TextAlign.justify,
+                      ),
                     ),
                   ),
-                ),
+           ),
           SizedBox(height: 10.h,),
           Padding(
             padding: const EdgeInsets.all(10.0),

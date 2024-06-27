@@ -63,7 +63,17 @@
     "Description :" : "Description :",
     "Options": "Options",
     "Price": "Price",
-    "Active": "Active"
+    "Active": "Active",
+    "Soap-free":"Soap-free",
+    "Oil free":"Oil free",
+    "Sulfate free":"Sulfate free",
+    "Gluten free":"Gluten free",
+    "Non-alcoholic":"Non-alcoholic",
+    "Paraben free":"Paraben free",
+    "Fragrance free":"Fragrance free",
+    "Ammonia free":"Ammonia free",
+    "Copper free":"Copper free",
+    "Zinc free":"Zinc free"
 
 
 

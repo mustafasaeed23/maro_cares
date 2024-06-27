@@ -11,7 +11,7 @@ class SquareContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 330.w,
-      height: 290.h,
+      height: 292.h,
       decoration: BoxDecoration(
         color: MyTheme.mainColor,
         borderRadius: BorderRadius.all(Radius.circular(25.r)),

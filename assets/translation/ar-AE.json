@@ -57,7 +57,17 @@
     "Description :" : "الوصف : ",
     "Options": "خيارات التصفية",
     "Price": "نطاق السعر",
-    "Active": "تطبيق"
+    "Active": "تطبيق",
+    "Soap-free":"خالي من الصابون ",
+    "Oil free":"خالي من الزيت",
+    "Sulfate free":"خالي من الكبريتات",
+    "Gluten free":"خالي من الجلوتين",
+    "Non-alcoholic":"خالي من الكحول",
+    "Paraben free":"خالي من البارابين",
+    "Fragrance free":"خالي من العطور",
+    "Ammonia free":"خالي من الامونيا",
+    "Copper free":"خالي من النحاس",
+    "Zinc free":"خالي من الزنك"
 
     
 

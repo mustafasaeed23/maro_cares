@@ -7,6 +7,8 @@ import 'package:maro/core/theme/styles_manager.dart';
 import '../core/theme/my_theme.dart';
 
 class ShowDrawer extends StatefulWidget {
+  const ShowDrawer({super.key});
+
 
   @override
   State<ShowDrawer> createState() => _ShowDrawerState();
@@ -27,9 +29,9 @@ class _ShowDrawerState extends State<ShowDrawer> {
       child: IconButton(
 
         onPressed: () {
-          setState(() {
-            // iconChange =! iconChange;
-          });
+          // setState(() {
+          //   iconChange =! iconChange;
+          // });
           showMenu(
             elevation: 10,
               popUpAnimationStyle: AnimationStyle(),
@@ -568,7 +570,7 @@ class _ShowDrawerState extends State<ShowDrawer> {
               ]
           );
         },
-        icon: const Icon(Icons.menu) ,
+        icon: const Icon(Icons.menu ), 
 
 
         color: MyTheme.mainPrimaryColor4,

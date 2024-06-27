@@ -8,7 +8,7 @@ import 'package:maro/featuers/Home/home_screen_activity.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  static const String routeName = 'home_screen';
+  static const String routeName = '/';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
+       
       bottomNavigationBar: NavigationBarTheme(
         data: Theme.of(context).navigationBarTheme,
         child: NavigationBar(
@@ -45,7 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: tabs[currentIndex],
+      body: IndexedStack(
+        index: currentIndex,
+        children: tabs),
     );
   }
 }
