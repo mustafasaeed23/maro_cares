@@ -17,36 +17,36 @@ class ProductsCategories extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ProductContainer(imagePath: "assets/images/product4.png"),
-                SizedBox(width: 40.w,),
-                ProductContainer(imagePath: "assets/images/product5.png"),
-              ],
-            ),
-            SizedBox(height: 50.h,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ProductContainer(imagePath: "assets/images/cetaphil.png"),
-                SizedBox(width: 40.w,),
                 ProductContainer(imagePath: "assets/images/biooderma.png"),
+                SizedBox(width: 40.w,),
+                ProductContainer(imagePath: "assets/images/cetaphil.png"),
               ],
             ),
             SizedBox(height: 50.h,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ProductContainer(imagePath: "assets/images/product6.png"),
+                ProductContainer(imagePath: "assets/images/somebymi.png"),
                 SizedBox(width: 40.w,),
-                ProductContainer(imagePath: "assets/images/product7.png"),
+                ProductContainer(imagePath: "assets/images/advancedclinicals.png"),
               ],
             ),
             SizedBox(height: 50.h,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ProductContainer(imagePath: "assets/images/product8.png"),
+                ProductContainer(imagePath: "assets/images/beautyofjoseon.png"),
                 SizedBox(width: 40.w,),
-                ProductContainer(imagePath: "assets/images/product9.png"),
+                ProductContainer(imagePath: "assets/images/ImsorryformySkin.png"),
+              ],
+            ),
+            SizedBox(height: 50.h,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ProductContainer(imagePath: "assets/images/theOrdinary.png"),
+                SizedBox(width: 40.w,),
+                ProductContainer(imagePath: "assets/images/Mielle.png"),
               ],
             ),
             SizedBox(height: 50.h,),

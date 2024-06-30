@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:maro/presentation/Sliders/Slider.dart';
 import 'package:maro/presentation/Sliders/ads_slider.dart';
 import 'package:maro/presentation/Sliders/banners_widget.dart';
-import 'package:maro/presentation/widgets/trending_products.dart';
 import 'package:maro/side_menu/show_drawer.dart';
 import 'package:maro/presentation/screens/products_categories.dart';
 import 'package:maro/core/theme/my_theme.dart';
@@ -39,7 +38,7 @@ class HomeScreenActivity extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              ShowDrawer(),
+              const ShowDrawer(),
               SizedBox(
                 width: 8.w,
               ),
@@ -80,7 +79,6 @@ class HomeScreenActivity extends StatelessWidget {
               SizedBox(
                 height: 30.h,
               ),
-      
               Center(
                 child: Container(
                   width: 347.w,
@@ -113,7 +111,6 @@ class HomeScreenActivity extends StatelessWidget {
               SizedBox(
                 height: 30.h,
               ),
-             
                BannersWidgetAds(),
               SizedBox(
                 height: 35.h,

@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:maro/presentation/widgets/trending_products.dart';
 
@@ -41,14 +40,7 @@ class _SliderProductsState extends State<SliderProducts> {
             ),
             
            ),
-           DotsIndicator(
-            decorator: const DotsDecorator(
-               color: Colors.black, 
-               
-            ),
-              dotsCount: 8,
-              position: 0
-            )
+           
         ],
       ),
     );

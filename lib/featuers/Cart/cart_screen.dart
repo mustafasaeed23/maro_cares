@@ -82,7 +82,7 @@ class _CartScreenState extends State<CartScreen> {
                     CircleAvatar(
                       backgroundColor: Colors.transparent,
                       radius: 30.r,
-                      child: Image.asset("assets/images/product7.png"),
+                      child: Image.asset("assets/images/trendig1.jpg"),
                     ),
                     SizedBox(width: 10.w,),
                     Text("\$ 37.3" ,
