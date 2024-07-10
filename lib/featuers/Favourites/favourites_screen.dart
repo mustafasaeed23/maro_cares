@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:maro/core/theme/styles_manager.dart';
-import 'package:maro/presentation/widgets/favourite_widget.dart';
+import 'package:maro/featuers/presentation/widgets/favourite_widget.dart';
 
 class FavouritesScreen extends StatelessWidget {
   const FavouritesScreen({super.key});

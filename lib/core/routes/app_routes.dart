@@ -5,12 +5,13 @@ import 'package:maro/core/constence/Strings.dart';
 import 'package:maro/featuers/Authentication/auth_screen.dart';
 import 'package:maro/featuers/Authentication/create_account.dart';
 import 'package:maro/featuers/Authentication/create_profile.dart';
-import 'package:maro/featuers/Products/products_details.dart';
-import 'package:maro/presentation/screens/Mascara_Products.dart';
-import 'package:maro/presentation/screens/home.dart';
-import 'package:maro/presentation/screens/products_categories.dart';
+import 'package:maro/featuers/Home/screens/home.dart';
+import 'package:maro/featuers/presentation/screens/Mascara_Products.dart';
+import 'package:maro/featuers/presentation/screens/products_categories.dart';
 
 class AppRouter {
+  
+
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
@@ -33,9 +34,9 @@ class AppRouter {
 
       case MascaraScreen:
         return MaterialPageRoute(builder: (_) => const MascaraProducts());
-        
-      case ProductsDetailsScreen:
-        return MaterialPageRoute(builder: (_) =>  ProductsDetails());
+
+      // case ProductsDetailsScreen:
+      //   return MaterialPageRoute(builder: (_) => ProductsDetails());
     }
   }
 }
