@@ -82,6 +82,14 @@ TextStyle getMediumBlue10Style() {
   );
 }
 
+TextStyle getMediumBlack8Style() {
+  return _getTextStyle(
+    FontSize.size10.sp,
+    FontWeightManager.medium,
+    ColorManager.black,
+  );
+}
+
 TextStyle getMediumBlue16Style() {
   return _getTextStyle(
     FontSize.size16.sp,
@@ -186,13 +194,14 @@ TextStyle getMediumBlack12Style() {
   );
 }
 
-TextStyle getMediumBlack8Style() {
+TextStyle getSemiBold8Style() {
   return _getTextStyle(
     FontSize.size8.sp,
-    FontWeightManager.medium,
-    ColorManager.textColorBoldBlack,
+    FontWeightManager.bold,
+    ColorManager.black,
   );
 }
+
 
 TextStyle getMediumBlue8style() {
   return _getTextStyle(
