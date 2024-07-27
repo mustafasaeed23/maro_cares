@@ -15,6 +15,7 @@ class MyTheme {
   static Color greyColor = greyColor = Colors.grey.withOpacity(0.3);
   // light theme
   static ThemeData lightTheme = ThemeData(
+  visualDensity: VisualDensity.adaptivePlatformDensity,
     primaryColor: mainColor,
     navigationBarTheme: NavigationBarThemeData(
            

@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:maro/featuers/presentation/widgets/shopping_ads.dart';
+import 'package:maro/core/widgets/shopping_ads.dart';
 
 class AdsSlider extends StatelessWidget {
   AdsSlider({super.key});

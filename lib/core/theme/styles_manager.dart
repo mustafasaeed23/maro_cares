@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:maro/core/theme/color_manager.dart';
 import 'package:maro/core/theme/font_manager.dart';
 
-
 TextStyle _getTextStyle(
   double fontSize,
   FontWeight fontWeight,
@@ -58,6 +57,7 @@ TextStyle getSemiBoldBlack10Style() {
     ColorManager.black,
   );
 }
+
 TextStyle getSemiBoldBlack12Style() {
   return _getTextStyle(
     FontSize.size12.sp,
@@ -95,6 +95,38 @@ TextStyle getMediumBlue16Style() {
     FontSize.size16.sp,
     FontWeightManager.medium,
     ColorManager.mainPrimaryColor4,
+  );
+}
+
+TextStyle getMediumBlue14Style() {
+  return _getTextStyle(
+    FontSize.size14.sp,
+    FontWeightManager.medium,
+    ColorManager.mainPrimaryColor4,
+  );
+}
+
+TextStyle getMediumBlue12Style() {
+  return _getTextStyle(
+    FontSize.size12.sp,
+    FontWeightManager.medium,
+    ColorManager.mainPrimaryColor4,
+  );
+}
+
+TextStyle getMediumWhite12Style() {
+  return _getTextStyle(
+    FontSize.size12.sp,
+    FontWeightManager.medium,
+    ColorManager.white,
+  );
+}
+
+TextStyle getMediumBlack10Style() {
+  return _getTextStyle(
+    FontSize.size10.sp,
+    FontWeightManager.medium,
+    ColorManager.black,
   );
 }
 
@@ -201,7 +233,6 @@ TextStyle getSemiBold8Style() {
     ColorManager.black,
   );
 }
-
 
 TextStyle getMediumBlue8style() {
   return _getTextStyle(

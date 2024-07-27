@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:maro/featuers/Authentication/auth_screen.dart';
-import 'package:maro/featuers/Cart/cart_screen.dart';
-import 'package:maro/featuers/Favourites/favourites_screen.dart';
+import 'package:maro/featuers/Authentication/screens/auth_screen.dart';
+import 'package:maro/featuers/Cart/screen/cart_screen.dart';
+import 'package:maro/featuers/Favourites/screens/favourites_screen.dart';
 import 'package:maro/featuers/Home/screens/home_screen_activity.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final tabs =  [
    const HomeScreenActivity(),
     CartScreen(),
-   const  FavouritesScreen(),
+    FavoriteScreen(),
     const AuthScreen(),
   ];
 

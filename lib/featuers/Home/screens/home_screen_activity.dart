@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:maro/featuers/Home/Products/On_sale/on_sale_products.dart';
-import 'package:maro/featuers/Home/Products/our_choose/our_choose_products.dart';
-import 'package:maro/featuers/Home/Products/trending/trending_products.dart';
+import 'package:maro/core/widgets/custom_appbar.dart';
+import 'package:maro/featuers/Home/Products/screens/on_sale_products.dart';
+import 'package:maro/featuers/Home/Products/screens/our_choose_products.dart';
+import 'package:maro/featuers/Home/Products/screens/trending_products.dart';
 import 'package:maro/featuers/Home/Sliders/ads_slider.dart';
 import 'package:maro/featuers/Home/Sliders/banners_widget.dart';
+import 'package:maro/featuers/Home/brands/screens/brands_grid_screen.dart';
+import 'package:maro/core/widgets/categories_widget.dart';
+import 'package:maro/core/widgets/products.dart';
 import 'package:maro/featuers/side_menu/show_drawer.dart';
-import 'package:maro/featuers/presentation/screens/products_categories.dart';
 import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
 import 'package:maro/core/translation.dart';
-import 'package:maro/featuers/presentation/widgets/appbar_widget_icons.dart';
-import 'package:maro/featuers/presentation/widgets/categories_widget.dart';
+import 'package:maro/core/widgets/appbar_widget_icons.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:maro/featuers/presentation/widgets/products.dart';
 
 class HomeScreenActivity extends StatelessWidget {
   const HomeScreenActivity({super.key});
@@ -22,54 +23,7 @@ class HomeScreenActivity extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      appBar: AppBar(
-        scrolledUnderElevation: 10,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0, left: 15.0),
-            child: Image.asset(
-              "assets/images/logo2.png",
-              fit: BoxFit.fill,
-              width: 70.h,
-              height: 50.h,
-            ),
-          ),
-        ],
-        leadingWidth: 160.w,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              const ShowDrawer(),
-              SizedBox(
-                width: 8.w,
-              ),
-              AppBarWidgetIcon(
-                  iconButton: IconButton(
-                      onPressed: () {
-                        LocalizationChecker.changeLangauge(context);
-                      },
-                      icon: Center(
-                        child: Text("ع",
-                            style: TextStyle(
-                                backgroundColor: Colors.transparent,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: MyTheme.mainPrimaryColor4)),
-                      ))),
-              SizedBox(
-                width: 8.w,
-              ),
-              AppBarWidgetIcon(
-                  iconButton: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.light_mode),
-                color: MyTheme.mainPrimaryColor4.withOpacity(0.9),
-              )),
-            ],
-          ),
-        ),
-      ),
+      appBar: CustomAppBar("", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -114,8 +68,6 @@ class HomeScreenActivity extends StatelessWidget {
               SizedBox(
                 height: 35.h,
               ),
-
-              // const BannersWidget(),
               const CategoriesWidget(),
               SizedBox(
                 height: 30.h,
@@ -129,7 +81,7 @@ class HomeScreenActivity extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () => Navigator.of(context)
-                        .pushNamed(ProductsCategories.routeName),
+                        .pushNamed(BrandsGridScreen.routeName),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -164,7 +116,7 @@ class HomeScreenActivity extends StatelessWidget {
               SizedBox(
                 height: 30.h,
               ),
-              const TrendingProductCarouselScreen(),
+              TrendingProducts(),
               SizedBox(
                 height: 40.h,
               ),
@@ -176,7 +128,7 @@ class HomeScreenActivity extends StatelessWidget {
               SizedBox(
                 height: 40.h,
               ),
-              const OnSaleProductCarsouelScreen(),
+              OnSaleProducts(),
               SizedBox(
                 height: 40.h,
               ),
@@ -188,9 +140,7 @@ class HomeScreenActivity extends StatelessWidget {
               SizedBox(
                 height: 30.h,
               ),
-              const OurSelectionProductCarsouelScreen()
-
-              
+              OurSelectionProducts(),
             ],
           ),
         ),
