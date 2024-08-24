@@ -11,3 +11,8 @@ const ProductsDetailsScreen = 'product_details';
 const BrandsGirdScreen = 'brnads_Grid';
 const FavourieScreen = 'favourite';
 const ScreenCart = 'cart';
+
+// 'maroTKeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OTVkYzVmNTc1NTNiYmIzYjlkZThjMSIsImlhdCI6MTcwNDMyMDM5M30.fxRqhJmdg_VROgTyykN2amRNRDd_z3PQnfM7FzZGLbs'
+const String baseUrlAuth = 'https://maro-cares-z86j.onrender.com/auth/';
+const String loginEndPoint = 'login';
+const String registerEndPoint = 'register';

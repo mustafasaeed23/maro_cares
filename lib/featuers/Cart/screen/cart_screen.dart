@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_null_comparison
+// ignore_for_file: unnecessary_null_comparison, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,12 +6,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
+import 'package:maro/core/translation.dart';
 import 'package:maro/core/widgets/appbar_screens.dart';
 import 'package:maro/featuers/Cart/bloc/cart_bloc.dart';
 import 'package:maro/featuers/Cart/bloc/cart_event.dart';
 import 'package:maro/featuers/Cart/bloc/cart_state.dart';
+import 'package:maro/featuers/Home/Products/screens/products_details.dart';
 
 class CartScreen extends StatefulWidget {
+  const CartScreen({super.key});
+
   @override
   State<CartScreen> createState() => _CartScreenState();
 }
@@ -26,6 +30,8 @@ class _CartScreenState extends State<CartScreen> {
     }
   }
 
+  final LanguageManagerAPi languageManager = LanguageManagerAPi();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,9 +40,9 @@ class _CartScreenState extends State<CartScreen> {
         builder: (context, state) {
           double totalPrice = 0.0;
           state.cartItems.forEach((product) {
-            final productId = product.sId ?? '';
+            final productId = product?.sId ?? '';
             final count = state.productCounts[productId] ?? 1;
-            totalPrice += (product.price ?? 0) * count;
+            totalPrice += (product!.price ?? 0) * count;
           });
 
           final discountedPrice = totalPrice - state.discount;
@@ -60,104 +66,117 @@ class _CartScreenState extends State<CartScreen> {
                 else ...[
                   ListView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: state.cartItems.length,
                     itemBuilder: (context, index) {
                       final product = state.cartItems[index];
                       final productId = product.sId ?? '';
                       final count = state.productCounts[productId] ?? 1;
 
-                      return Card(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 18),
-                        child: Padding(
-                          padding: EdgeInsets.all(16),
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundImage: NetworkImage(
-                                  product.images != null &&
-                                          product.images!.isNotEmpty
-                                      ? product.images![0]
-                                      : 'https://via.placeholder.com/150',
-                                ),
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => ProductsDetailsScreen(
+                                product: product,
+                                languageManager: languageManager,
                               ),
-                              SizedBox(width: 15.w),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 8.h),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "SAR".tr(),
-                                        style: getBoldBlack14Style().copyWith(
-                                          color: const Color.fromARGB(
-                                              255, 7, 99, 10),
-                                        ),
-                                      ),
-                                      SizedBox(width: 2.w),
-                                      Text(
-                                          '${product.price?.toStringAsFixed(2)}',
+                            ),
+                          );
+                        },
+                        child: Card(
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 5, horizontal: 18),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Row(
+                              children: [
+                                CircleAvatar(
+                                  radius: 30,
+                                  backgroundImage: NetworkImage(
+                                    product.images != null &&
+                                            product.images!.isNotEmpty
+                                        ? product.images![0]
+                                        : 'https://via.placeholder.com/150',
+                                  ),
+                                ),
+                                SizedBox(width: 15.w),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 8.h),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "SAR".tr(),
                                           style: getBoldBlack14Style().copyWith(
                                             color: const Color.fromARGB(
                                                 255, 7, 99, 10),
-                                          )),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Spacer(),
-                              CircleAvatar(
-                                backgroundColor: const Color(0xffe6d9e8),
-                                child: IconButton(
-                                  padding: const EdgeInsets.all(5),
-                                  onPressed: () {
-                                    if (count > 1) {
-                                      context.read<CartBloc>().add(
-                                          DecrementProductQuantity(product));
-                                    } else {
-                                      return;
-                                    }
-                                  },
-                                  icon: const Icon(Icons.remove),
-                                  color: Colors.deepPurple,
-                                  iconSize: 30.0,
+                                          ),
+                                        ),
+                                        SizedBox(width: 2.w),
+                                        Text(
+                                            '${product.price?.toStringAsFixed(2)}',
+                                            style:
+                                                getBoldBlack14Style().copyWith(
+                                              color: const Color.fromARGB(
+                                                  255, 7, 99, 10),
+                                            )),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              SizedBox(width: 8),
-                              Text(
-                                "$count",
-                                style: getBoldBlack14Style(),
-                              ),
-                              SizedBox(width: 8),
-                              CircleAvatar(
-                                backgroundColor: const Color(0xffe6d9e8),
-                                child: IconButton(
-                                  padding: const EdgeInsets.all(5),
+                                const Spacer(),
+                                CircleAvatar(
+                                  backgroundColor: const Color(0xffe6d9e8),
+                                  child: IconButton(
+                                    padding: const EdgeInsets.all(5),
+                                    onPressed: () {
+                                      if (count > 1) {
+                                        context.read<CartBloc>().add(
+                                            DecrementProductQuantity(product));
+                                      } else {
+                                        return;
+                                      }
+                                    },
+                                    icon: const Icon(Icons.remove),
+                                    color: Colors.deepPurple,
+                                    iconSize: 30.0,
+                                  ),
+                                ),
+                                SizedBox(width: 8.w),
+                                Text(
+                                  "$count",
+                                  style: getBoldBlack14Style(),
+                                ),
+                                SizedBox(width: 8.w),
+                                CircleAvatar(
+                                  backgroundColor: const Color(0xffe6d9e8),
+                                  child: IconButton(
+                                    padding: const EdgeInsets.all(5),
+                                    onPressed: () {
+                                      context.read<CartBloc>().add(
+                                          IncrementProductQuantity(product));
+                                    },
+                                    icon: const Icon(Icons.add),
+                                    color: Colors.deepPurple,
+                                    iconSize: 30.0,
+                                  ),
+                                ),
+                                IconButton(
                                   onPressed: () {
                                     context
                                         .read<CartBloc>()
-                                        .add(IncrementProductQuantity(product));
+                                        .add(RemoveProductFromCart(product));
                                   },
-                                  icon: const Icon(Icons.add),
-                                  color: Colors.deepPurple,
-                                  iconSize: 30.0,
+                                  icon: const Icon(
+                                    Icons.delete,
+                                    color: Color.fromARGB(255, 178, 20, 9),
+                                  ),
                                 ),
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  context
-                                      .read<CartBloc>()
-                                      .add(RemoveProductFromCart(product));
-                                },
-                                icon: Icon(
-                                  Icons.delete,
-                                  color: Color.fromARGB(255, 178, 20, 9),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       );
@@ -183,7 +202,7 @@ class _CartScreenState extends State<CartScreen> {
                             child: TextField(
                               controller: _couponController,
                               decoration: InputDecoration(
-                                fillColor: Color(0xffe6d9e8),
+                                fillColor: const Color(0xffe6d9e8),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
                                       color: Colors.deepPurple),
@@ -206,13 +225,13 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         CircleAvatar(
                           radius: 25,
                           backgroundColor: MyTheme.ColorContainer,
                           child: IconButton(
                             onPressed: _applyCoupon,
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.check,
                               size: 35,
                               color: Colors.deepPurple,
@@ -265,7 +284,7 @@ class _CartScreenState extends State<CartScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.shopping_cart,
                               size: 25,
                               color: MyTheme.mainColor,

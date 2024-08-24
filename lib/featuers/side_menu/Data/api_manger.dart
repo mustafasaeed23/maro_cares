@@ -5,18 +5,18 @@ class ApiManager {
   final Dio _dio = Dio();
   final String _baseUrl = 'https://maro-cares-z86j.onrender.com';
 
-  ApiManager() {
-    // Initialize Dio settings here if needed
-  }
+  ApiManager() {}
 
-  Future<List<Product>> fetchData(String category, int page, String language) async {
+  Future<List<Product>> getProductsByCategory(
+      String category, int page, String language) async {
     var headers = {
       'language': language,
     };
 
     try {
       var response = await _dio.request(
-        Uri.encodeFull('$_baseUrl/product/getProductByCategory/$category/$page'),
+        Uri.encodeFull(
+            '$_baseUrl/product/getProductByCategory/$category/$page'),
         options: Options(
           method: 'GET',
           headers: headers,

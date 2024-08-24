@@ -73,9 +73,6 @@
     "Ammonia free":"Ammonia free",
     "Copper free":"Copper free",
     "Zinc free":"Zinc free",
-
-    "SAR": "SAR",
-
     "Premium Care": "Premium Care",
     "Exfoliator": "Exfoliator",
     "Masks": "Masks",
@@ -413,7 +410,6 @@
   "Mandy":"Mandy",
   "Mac": "Mac",
   "Maybelline": "Maybelline",
-  "Missha":"Missha",
   "Moodmatcher":"Moodmatcher",
   "Nature's Answer":"Nature's Answer",
   "Neutrogena": "Neutrogena",
@@ -530,6 +526,14 @@
   "Please Enter Your Name":"Please Enter Your Name",
 "added to cart, press to show":"added to cart, press to show"  ,
 "added to favourite, press to show":"added to favourite, press to show",
-"Registration Successful":"Registration Successful"
-
+"Registration Successful":"Registration Successful",
+"Login":"Login",
+"Register":"Register",
+"Sign In":"Sign In",
+"Sign in with Google":"Sign in with Google",
+"Please check your phone for the OTP.":"Please check your phone for the OTP.",
+"Verify Account":"Verify Account",
+"Verification Successful!":"Verification Successful!",
+"Enter the OTP sent to":"Enter the OTP sent to",
+"Verify":"Verify"
 }

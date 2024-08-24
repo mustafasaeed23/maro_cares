@@ -3,17 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
+import 'package:maro/featuers/Home/Products/Data/model.dart';
 import 'package:maro/featuers/Home/Sliders/range_slider_widget.dart';
 
 class OptionsBottomSheet extends StatefulWidget {
-  const OptionsBottomSheet({super.key});
+  final Product product;
+  final List<String> selectedFilters;
+  final Function(List<String>) onFiltersSelected;
+
+  const OptionsBottomSheet({
+    super.key,
+    required this.product,
+    required this.selectedFilters,
+    required this.onFiltersSelected,
+  });
 
   @override
   State<OptionsBottomSheet> createState() => _OptionsBottomSheetState();
 }
 
 class _OptionsBottomSheetState extends State<OptionsBottomSheet> {
-  bool customIcon = false;
+  late List<String> _selectedFilters;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedFilters = widget.selectedFilters;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,72 +62,25 @@ class _OptionsBottomSheetState extends State<OptionsBottomSheet> {
                     ),
                   ],
                 ),
-                children: [
-                  ListTile(
+                children: widget.product.filter!.map((filter) {
+                  return CheckboxListTile(
                     title: Text(
-                      "Soap-free".tr(),
+                      filter.tr(),
                       style: getRegularBlack16Style(),
                     ),
-                   
-                    
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Oil free".tr(),
-                      style: getRegularBlack16Style(),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Sulfate free".tr(),
-                      style: getRegularBlack16Style(),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Gluten free".tr(),
-                      style: getRegularBlack16Style(),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Non-alcoholic".tr(),
-                      style: getRegularBlack16Style(),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Paraben free".tr(),
-                      style: getRegularBlack16Style(),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Fragrance free".tr(),
-                      style: getRegularBlack16Style(),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Ammonia free".tr(),
-                      style: getRegularBlack16Style(),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Copper free".tr(),
-                      style: getRegularBlack16Style(),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Zinc free".tr(),
-                      style: getRegularBlack16Style(),
-                    ),
-                  ),
-                ],
+                    value: _selectedFilters.contains(filter),
+                    onChanged: (bool? value) {
+                      setState(() {
+                        if (value == true) {
+                          _selectedFilters.add(filter);
+                        } else {
+                          _selectedFilters.remove(filter);
+                        }
+                      });
+                    },
+                  );
+                }).toList(),
               ),
-             
               SizedBox(
                 height: 40.h,
               ),
@@ -136,14 +105,19 @@ class _OptionsBottomSheetState extends State<OptionsBottomSheet> {
               SizedBox(
                 width: 350.w,
                 child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: MyTheme.mainPrimaryColor4),
-                    onPressed: () {},
-                    child: Text(
-                      "Active".tr(),
-                      style: getBoldWhite14Style(),
-                    )),
-              )
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: MyTheme.mainPrimaryColor4,
+                  ),
+                  onPressed: () {
+                    widget.onFiltersSelected(_selectedFilters);
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    "Active".tr(),
+                    style: getBoldWhite14Style(),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

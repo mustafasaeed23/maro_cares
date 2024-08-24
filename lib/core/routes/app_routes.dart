@@ -4,7 +4,7 @@ import 'package:maro/core/constence/Strings.dart';
 import 'package:maro/featuers/Authentication/screens/auth_screen.dart';
 import 'package:maro/featuers/Authentication/screens/register_screen.dart';
 import 'package:maro/featuers/Authentication/screens/login_screen.dart';
-import 'package:maro/featuers/Cart/Data/api_coupon.dart';
+import 'package:maro/featuers/Cart/Data/cart_api_manger.dart';
 import 'package:maro/featuers/Cart/bloc/cart_bloc.dart';
 import 'package:maro/featuers/Cart/screen/cart_screen.dart';
 import 'package:maro/featuers/Favourites/screens/favourites_screen.dart';

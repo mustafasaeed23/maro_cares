@@ -1,78 +1,43 @@
 import 'package:dio/dio.dart';
+import 'package:maro/core/translation.dart';
 import 'package:maro/featuers/Home/Products/Data/model.dart';
 
-class ApiManagerProducts{
-  static String _language = 'ar'; 
+class ApiManagerProducts {
+  final Dio dio;
+  ApiManagerProducts() : dio = Dio();
+ 
+  Future<List<Product>> _fetchProducts(String sectionType) async {
+    String lang = LanguageManagerAPi().currentLanguage;
 
-  void setLanguage(String language) {
-    _language = language;
-  }
-  String getLanguage() {
-    return _language;
+    var headers = {'language': lang};
+
+    try {
+      var response = await dio.get(
+        'https://maro-cares-z86j.onrender.com/product/getProductBySectionType/$sectionType',
+        options: Options(headers: headers),
+      );
+
+      if (response.statusCode == 200) {
+        var data = ProductsResponse.fromJson(response.data);
+        return data.productsList ?? [];
+      } else {
+        throw Exception(
+            'Failed to load $sectionType products: ${response.statusMessage}');
+      }
+    } catch (e) {
+      throw Exception('Failed to load $sectionType products: $e');
+    }
   }
 
   Future<List<Product>> getTrendingProducts() async {
-  var dio = Dio();
-  var headers = {
-      'language': _language,
-     };
-  try {
-    var response = await dio.get(
-      'https://maro-cares-z86j.onrender.com/product/getProductBySectionType/Trending',
-      options: Options(headers: headers),
-    );
-
-    if (response.statusCode == 200) {
-      var data = ProductsResponse.fromJson(response.data);
-      return data.productsList ?? [];
-    } else {
-      throw Exception('Failed to load products: ${response.statusMessage}');
-    }
-  } catch (e) {
-    throw Exception('Failed to load products: $e');
+    return _fetchProducts('Trending');
   }
-}
 
- Future<List<Product>> getOnSaleProducts() async {
-  var dio = Dio();
-  var headers = {'language': 'ar'};
-
-  try {
-    var response = await dio.get(
-      'https://maro-cares-z86j.onrender.com/product/getProductBySectionType/On Sale',
-      options: Options(headers: headers),
-    );
-
-    if (response.statusCode == 200) {
-      var data = ProductsResponse.fromJson(response.data);
-      return data.productsList ?? [];
-    } else {
-      throw Exception('Failed to load products: ${response.statusMessage}');
-    }
-  } catch (e) {
-    throw Exception('Failed to load products: $e');
+  Future<List<Product>> getOnSaleProducts() async {
+    return _fetchProducts('On Sale');
   }
-}
 
-Future<List<Product>> getOurSelectionProducts() async {
-  var dio = Dio();
-  var headers = {'language': 'ar'};
-
-  try {
-    var response = await dio.get(
-      'https://maro-cares-z86j.onrender.com/product/getProductBySectionType/Our Selection',
-      options: Options(headers: headers),
-    );
-
-    if (response.statusCode == 200) {
-      var data = ProductsResponse.fromJson(response.data);
-      return data.productsList ?? [];
-    } else {
-      throw Exception('Failed to load products: ${response.statusMessage}');
-    }
-  } catch (e) {
-    throw Exception('Failed to load products: $e');
+  Future<List<Product>> getOurSelectionProducts() async {
+    return _fetchProducts('Our Selection');
   }
-}
-
 }

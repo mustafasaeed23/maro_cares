@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:maro/core/translation.dart';
 import 'package:maro/core/widgets/custom_appbar.dart';
+import 'package:maro/core/widgets/search_widget.dart';
 import 'package:maro/featuers/Home/Products/screens/on_sale_products.dart';
 import 'package:maro/featuers/Home/Products/screens/our_choose_products.dart';
 import 'package:maro/featuers/Home/Products/screens/trending_products.dart';
@@ -9,21 +11,19 @@ import 'package:maro/featuers/Home/Sliders/banners_widget.dart';
 import 'package:maro/featuers/Home/brands/screens/brands_grid_screen.dart';
 import 'package:maro/core/widgets/categories_widget.dart';
 import 'package:maro/core/widgets/products.dart';
-import 'package:maro/featuers/side_menu/show_drawer.dart';
-import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
-import 'package:maro/core/translation.dart';
-import 'package:maro/core/widgets/appbar_widget_icons.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class HomeScreenActivity extends StatelessWidget {
-  const HomeScreenActivity({super.key});
+   HomeScreenActivity({super.key});
+    final LanguageManagerAPi languageManager = LanguageManagerAPi();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      appBar: CustomAppBar("", context),
+      appBar: CustomAppBar(title: "",),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -32,35 +32,7 @@ class HomeScreenActivity extends StatelessWidget {
               SizedBox(
                 height: 30.h,
               ),
-              Center(
-                child: Container(
-                  width: 347.w,
-                  height: 60.h,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(30.r),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.search,
-                          color: Colors.black,
-                          size: 25,
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        Text(
-                          "Search".tr(),
-                          style: getBoldBlack12Style(),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              SearchWidget(),
               SizedBox(
                 height: 30.h,
               ),

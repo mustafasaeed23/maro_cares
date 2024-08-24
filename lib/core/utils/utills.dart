@@ -2,13 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maro/core/constence/Strings.dart';
 
-import 'package:maro/core/widgets/options_bottom_sheet.dart';
 
-void showOptions (context){
-  showModalBottomSheet(
-    context: context, 
-    builder: (context) => const OptionsBottomSheet() );
-}
+
+
 
 void showSuccessDialogRegister(BuildContext context) {
   showDialog(
@@ -17,7 +13,6 @@ void showSuccessDialogRegister(BuildContext context) {
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text("Registration Successful".tr()),
-        // content: Text("You have successfully registered. Please check your email for further instructions.".tr()),
         actions: <Widget>[
           TextButton(
             child: Text("OK".tr()),

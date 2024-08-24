@@ -1,17 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
 import 'package:maro/core/translation.dart';
 import 'package:maro/core/widgets/custom_appbar.dart';
 import 'package:maro/featuers/Home/brands/screens/brands_screen_list.dart';
-import 'package:maro/core/widgets/appbar_widget_icons.dart';
-import 'package:maro/featuers/side_menu/show_drawer.dart';
 
 class BrandsGridScreen extends StatelessWidget {
   static const String routeName = 'brnads_Grid';
-
+final LanguageManagerAPi languageManager = LanguageManagerAPi();
   final List<String> brandNamesList = [
     "Afle",
     "La Roche posay",
@@ -170,14 +167,15 @@ class BrandsGridScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("All Brands", context),
+      appBar: CustomAppBar(title: "All Brands"),
+      // CustomAppBar("All Brands", context),
       body: GridView.builder(
         padding: EdgeInsets.all(12.w),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Number of columns in the grid
-          crossAxisSpacing: 10.w, // Spacing between columns
-          mainAxisSpacing: 10.h, // Spacing between rows
-          childAspectRatio: 1.2, // Adjust as needed
+          crossAxisCount: 2,
+          crossAxisSpacing: 10.w, 
+          mainAxisSpacing: 10.h, 
+          childAspectRatio: 1.2, 
         ),
         itemCount: brandNamesList.length,
         itemBuilder: (context, index) {

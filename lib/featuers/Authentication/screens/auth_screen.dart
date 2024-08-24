@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:maro/core/constence/Strings.dart';
 import 'package:maro/core/theme/styles_manager.dart';
-import 'package:maro/featuers/Authentication/screens/login_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});

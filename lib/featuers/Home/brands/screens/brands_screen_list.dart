@@ -7,24 +7,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:maro/core/theme/color_manager.dart';
 import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
+import 'package:maro/core/translation.dart';
 import 'package:maro/featuers/Cart/bloc/cart_bloc.dart';
 import 'package:maro/featuers/Cart/bloc/cart_event.dart';
 import 'package:maro/featuers/Home/Products/Data/model.dart';
+import 'package:maro/featuers/Home/Products/screens/products_details.dart';
 import 'package:maro/featuers/Home/brands/Data/brands_api_manager.dart';
 
 class BrandsScreenList extends StatefulWidget {
   final String brandName;
 
-  const BrandsScreenList({Key? key, required this.brandName}) : super(key: key);
+  const BrandsScreenList({super.key, required this.brandName});
 
   static const String routeName = 'brands_list';
 
   @override
+  // ignore: library_private_types_in_public_api
   _BrandsScreenListState createState() => _BrandsScreenListState();
 }
 
 class _BrandsScreenListState extends State<BrandsScreenList> {
   ApiManagerBrands apiManager = ApiManagerBrands();
+  final LanguageManagerAPi languageManager = LanguageManagerAPi();
   List<Product> products = [];
   bool isLoading = true;
 
@@ -41,7 +45,7 @@ class _BrandsScreenListState extends State<BrandsScreenList> {
 
     try {
       List<Product> data =
-          await apiManager.getProductByBrand(widget.brandName, 1, 'ar');
+          await apiManager.getProductByBrand(widget.brandName, 1);
       setState(() {
         products = data;
         isLoading = false;
@@ -92,11 +96,22 @@ class _BrandsScreenListState extends State<BrandsScreenList> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          AspectRatio(
-                            aspectRatio: 1.5,
-                            child: Image.network(
-                              imageUrl,
-                              fit: BoxFit.cover,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) =>
+                                      ProductsDetailsScreen(product: product, languageManager: languageManager,),
+                                ),
+                              );
+                            },
+                            child: AspectRatio(
+                              aspectRatio: 1.5,
+                              child: Image.network(
+                                imageUrl,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           SizedBox(height: 8.h),

@@ -8,7 +8,7 @@
     <application
         android:label="maro"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/ic_launcher">
 
         <activity
             android:name=".MainActivity"
@@ -49,7 +49,7 @@
 <!--    <application-->
 <!--        android:label="maro"-->
 <!--        android:name="${applicationName}"-->
-<!--        android:icon="@mipmap/launcher_icon">-->
+<!--        android:icon="@mipmap/ic_launcher">-->
 <!--        -->
 <!--        <activity-->
 <!--            android:name=".MainActivity"-->

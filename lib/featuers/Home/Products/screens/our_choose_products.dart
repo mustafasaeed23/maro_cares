@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:maro/core/translation.dart';
 import 'package:maro/core/widgets/card_widget.dart';
 import 'package:maro/featuers/Home/Products/Data/api_manager_product.dart';
 import 'package:maro/featuers/Home/Products/Data/model.dart';
@@ -18,6 +19,8 @@ class OurSelectionProducts extends StatefulWidget {
 }
 
 class _OurSelectionProductsState extends State<OurSelectionProducts> {
+    final LanguageManagerAPi languageManager = LanguageManagerAPi();
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Product>>(
@@ -47,7 +50,7 @@ class _OurSelectionProductsState extends State<OurSelectionProducts> {
           var products = snapshot.data!;
           return CarouselSlider(
             options: CarouselOptions(
-              height: 530,
+              height: 548,
               enlargeCenterPage: true,
               autoPlay: true,
               reverse: true,
@@ -68,7 +71,7 @@ class _OurSelectionProductsState extends State<OurSelectionProducts> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => ProductsDetailsScreen(product: product),
+                      builder: (_) => ProductsDetailsScreen(product: product, languageManager: languageManager,),
                     ),
                   );
                 },

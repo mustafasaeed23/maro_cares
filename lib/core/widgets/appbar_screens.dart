@@ -26,8 +26,8 @@ AppBar AppBarScreens(BuildContext context, final String title) {
               onPressed: () {
                 Navigator.of(context).pushNamed('/');
               },
-              icon: Center(
-                child: const Icon(
+              icon: const Center(
+                child:  Icon(
                   Icons.arrow_back,
                   size: 28,
                   color: Colors.deepPurple,

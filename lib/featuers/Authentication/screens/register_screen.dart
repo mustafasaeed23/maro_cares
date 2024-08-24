@@ -1,12 +1,14 @@
-import 'dart:convert';
-import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
-import 'package:maro/featuers/Authentication/screens/login_screen.dart'; // Adjust this import based on your file structure
+import 'package:maro/core/utils/validator.dart';
+import 'package:maro/featuers/Authentication/Data/cubit/auth_cubit.dart';
+import 'package:maro/featuers/Authentication/screens/login_screen.dart';
+import 'package:maro/featuers/Authentication/screens/verfication_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const String routeName = 'Create_Account';
@@ -16,13 +18,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  String userName = '';
-  String email = '';
-  String phoneNumber = '';
-  String invitationBy = '';
-
-  final formkey = GlobalKey<FormState>();
-  final dio = Dio(); // Initialize Dio here or use dependency injection
+  final _userNameController = TextEditingController();
+  final _mobileNumberController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -60,298 +58,207 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Form(
-          key: formkey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 70.h,
-              ),
-              Center(
-                child: Lottie.asset(
-                  "assets/animations/Animation - 1718264964019.json",
-                  height: 200.h,
-                ),
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 22.0, right: 22.0),
-                child: Container(
-                  width: 290.w,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      label: Text("User Name").tr(),
-                      labelStyle: getBoldBlack16Style(),
-                      fillColor: MyTheme.ColorContainer,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.deepPurple),
-                        borderRadius: BorderRadius.circular(15.r),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.deepPurple),
-                        borderRadius: BorderRadius.circular(15.r),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.deepPurple),
-                        borderRadius: BorderRadius.circular(15.r),
-                      ),
+      body: BlocConsumer<AuthCubit, AuthState>(
+        listener: (context, state) {
+          if (state is AuthSuccess) {
+            _showSuccessDialog(context, state.phoneNumber);
+          } else if (state is AuthFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.error)),
+            );
+          }
+        },
+        builder: (context, state) {
+          if (state is AuthLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          return SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Lottie.asset(
+                      'assets/animations/Animation - 1718245911646.json',
+                      width: 250.w,
                     ),
-                    onChanged: (text) {
-                      userName = text;
-                    },
-                    validator: (text) {
-                      if (text == null || text.isEmpty) {
-                        return "Please Enter Your Name".tr();
-                      }
-                      return null;
-                    },
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.email,
-                      size: 30,
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    Container(
-                      width: 290.w,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          label: Text("Email").tr(),
-                          labelStyle: getBoldBlack16Style(),
-                          fillColor: MyTheme.ColorContainer,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.deepPurple),
-                            borderRadius: BorderRadius.circular(15.r),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.deepPurple),
-                            borderRadius: BorderRadius.circular(15.r),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.deepPurple),
-                            borderRadius: BorderRadius.circular(15.r),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.person,
+                          size: 30,
+                        ),
+                        SizedBox(
+                          width: 8.w,
+                        ),
+                        Container(
+                          width: 290.w,
+                          child: TextFormField(
+                            keyboardType: TextInputType.name,
+                            controller: _userNameController,
+                            decoration: InputDecoration(
+                              alignLabelWithHint: true,
+                              label: Text("User Name".tr()),
+                              labelStyle: getBoldBlack16Style(),
+                              fillColor: MyTheme.ColorContainer,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Colors.deepPurple),
+                                borderRadius: BorderRadius.circular(15.r),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Colors.deepPurple),
+                                borderRadius: BorderRadius.circular(15.r),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Colors.deepPurple),
+                                borderRadius: BorderRadius.circular(15.r),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "UserName can't be empty";
+                              }
+                              return null;
+                            },
                           ),
                         ),
-                        onChanged: (text) {
-                          email = text;
-                        },
-                        validator: (text) {
-                          if (text == null || text.isEmpty) {
-                            return "Please Enter Your Email".tr();
-                          } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(text)) {
-                            return "Invalid Email Address".tr();
-                          }
-                          return null;
-                        },
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.phone_android_rounded,
-                      size: 30,
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    Container(
-                      width: 290.w,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          label: Text("Phone No.".tr()),
-                          labelStyle: getBoldBlack16Style(),
-                          fillColor: MyTheme.ColorContainer,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.deepPurple),
-                            borderRadius: BorderRadius.circular(15.r),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.deepPurple),
-                            borderRadius: BorderRadius.circular(15.r),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.deepPurple),
-                            borderRadius: BorderRadius.circular(15.r),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.phone_android_rounded,
+                          size: 30,
+                        ),
+                        SizedBox(
+                          width: 8.w,
+                        ),
+                        Container(
+                          width: 290.w,
+                          child: TextFormField(
+                            keyboardType: TextInputType.phone,
+                            controller: _mobileNumberController,
+                            decoration: InputDecoration(
+                              alignLabelWithHint: true,
+                              label: Text("Phone No.".tr()),
+                              labelStyle: getBoldBlack16Style(),
+                              fillColor: MyTheme.ColorContainer,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Colors.deepPurple),
+                                borderRadius: BorderRadius.circular(15.r),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Colors.deepPurple),
+                                borderRadius: BorderRadius.circular(15.r),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Colors.deepPurple),
+                                borderRadius: BorderRadius.circular(15.r),
+                              ),
+                            ),
                           ),
                         ),
-                        onChanged: (text) {
-                          phoneNumber = text;
-                        },
-                        validator: (text) {
-                          if (text == null || text.isEmpty) {
-                            return "Please Enter Phone Number".tr();
-                          } else if (text.length < 12) {
-                            return "Phone Number should be at least 12 Number".tr();
-                          }
-                          return null;
-                        },
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  SizedBox(
+                    height: 45.h,
+                    width: 300.w,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: MyTheme.mainPrimaryColor4,
+                      ),
+                      onPressed: () {
+                        if (_formKey.currentState?.validate() == true) {
+                          context.read<AuthCubit>().registerUser(
+                                userName: _userNameController.text,
+                                email: '',
+                                phoneNumber: _mobileNumberController.text,
+                                invitationBy: '',
+                              );
+                        }
+                      },
+                      child: Text(
+                        "Register".tr(),
+                        style: getBoldWhite14Style(),
                       ),
                     ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.code,
-                      size: 30,
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    Container(
-                      width: 290.w,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          label: Text("Invitation By".tr()),
-                          labelStyle: getBoldBlack16Style(),
-                          fillColor: MyTheme.ColorContainer,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.deepPurple),
-                            borderRadius: BorderRadius.circular(15.r),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.deepPurple),
-                            borderRadius: BorderRadius.circular(15.r),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.deepPurple),
-                            borderRadius: BorderRadius.circular(15.r),
-                          ),
-                        ),
-                        onChanged: (text) {
-                          invitationBy = text;
-                        },
-                        validator: (text) {
-                          if (text == null || text.isEmpty) {
-                            return "Please Enter Invitation Code".tr();
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 25.h,
-              ),
-              SizedBox(
-                width: 300.w,
-                height: 52.h,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: MyTheme.mainPrimaryColor4),
-                    onPressed: () async {
-                      if (formkey.currentState?.validate() == true) {
-                        await _registerUser(userName, email, phoneNumber, invitationBy);
-                      }
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, LoginScreen.routeName);
                     },
                     child: Text(
-                      "Create Account".tr(),
-                      style: getBoldWhite18Style(),
-                    )),
+                      "Sign In".tr(),
+                      style: getBoldBlue16Style(),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  SizedBox(
+                    width: 210.w,
+                    height: 50.h,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Sign in with Google",
+                        style: getBoldBlue14Style(),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
 
-  Future<void> _registerUser(String userName, String email, String phoneNumber, String invitationBy) async {
-    var headers = {
-      'language': 'ar',
-      'Content-Type': 'application/json',
-    };
-
-    var data = json.encode({
-      "userName": userName,
-      "email": email,
-      "phoneNumber": phoneNumber,
-      "invitationBy": invitationBy,
-    });
-
-    try {
-      var response = await dio.post(
-        'https://maro-cares-z86j.onrender.com/auth/register',
-        options: Options(
-          headers: headers,
-        ),
-        data: data,
-      );
-
-      if (response.statusCode == 200) {
-        _showSuccessDialog();
-      } else {
-        _showErrorDialog(response.statusMessage ?? 'Unknown error');
-      }
-    } catch (e) {
-      _showErrorDialog('Failed to register user: $e');
-    }
-  }
-
-  void _showSuccessDialog() {
+  void _showSuccessDialog(BuildContext context, String phoneNumber) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
+      builder: (context) {
         return AlertDialog(
-          title: Text('Success'),
-          content: Text('Registration successful!'),
-          actions: <Widget>[
+          title:  Text("Registration Successful".tr()),
+          content:  Text("Please check your phone for the OTP.".tr()),
+          actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
+                // Navigator.of(context).pop();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => VerificationScreen(phoneNumber: phoneNumber,),
+                    ),
+                  );
+               
               },
-              child: Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void _showErrorDialog(String message) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Error'),
-          content: Text(message),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-              },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );

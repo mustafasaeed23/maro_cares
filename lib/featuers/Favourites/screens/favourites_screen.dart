@@ -4,11 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
+import 'package:maro/core/translation.dart';
 import 'package:maro/featuers/Favourites/cubit.dart';
 import 'package:maro/featuers/Home/Products/Data/model.dart';
 import 'package:maro/featuers/Home/Products/screens/products_details.dart';
 
 class FavoriteScreen extends StatelessWidget {
+    final LanguageManagerAPi languageManager = LanguageManagerAPi();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +76,7 @@ class FavoriteScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => ProductsDetailsScreen(product: product),
+                        builder: (_) => ProductsDetailsScreen(product: product, languageManager: languageManager,),
                       ),
                     );
                   },

@@ -31,13 +31,11 @@
     "Please, Sign up to show your Profile":"من فضلك قم بتسجيل الدخول لعرض ملفك الشخصي",
     "Sign up":"تسجيل الدخول",
     "Create Account":"انشاء حساب",
-
     "Face":"الوجه",
     "Eyes":"العيون",
     "Lips":"الشفاه",
     "Nails":"الاظافر",
     "Back": "العودة الي التصنفيات",
-
     "Eye shadow": "ظل للعيون",
     "Brow Liner": "قلم تحديد الحواجب",
     "Eyebrow mascara": "مسكارة حواجب",
@@ -53,7 +51,6 @@
     "Equipment for eyebrows and eyes": "معدات حواجب وعيون",
     "Gift set": "طقم هدايا",
     "Return to subcategories": "العوده الي التصنفيات الفرعيه",
-
     "Description :" : "الوصف : ",
     "Options": "خيارات التصفية",
     "Price": "نطاق السعر",
@@ -68,9 +65,6 @@
     "Ammonia free":"خالي من الامونيا",
     "Copper free":"خالي من النحاس",
     "Zinc free":"خالي من الزنك",
-
-    "SAR": "ريال",
-
     "Premium Care": "العناية الفائقة",
     "Exfoliator": "مقشرات",
     "Masks": "اقنعه",
@@ -88,25 +82,19 @@
     "Serum":"سيروم بشرة" ,
     "Cleanser": "منظف بشرة",
     "Toner": "تونر تنظيف البشرة",
-
     "Scrub":"سكر مقشر" ,
     "Exfoliators": "مقشر بشرة",
-
     "Face Mask": "اقنعة وجه",
-
     "Renual Ampoles": "أمبولات تجديد",
     "Shining Ampoule": "أمبولات اشراقة",
-
     "SPF Cream": "كريم واقي شمس",
     "SPF Milk": "بخاخ واقي شمسي",
     "SPF Spray": "حليب واقي شمس",
     "SPF Lotion": "لوشن واقي شمس",
-
     "Body Moisturising": "مرطب الجسم",
     "Bathing & Care": "الاستحمام",
     "Personal Care": "العناية الشخصية",
     "Body Tan": "تان الجسم",
-
     "Body Cream": "كريم الجسم",
     "Body Gel": "جل الجسم",
     "Body Firming & Lifting": "شد الجسم",
@@ -115,23 +103,19 @@
     "Body Mist": "رذاذ للجسم",
     "Body Powder": "بودرة للجسم",
     "Oil Control": "زيوت الجسم",
-
     "Bath Soap": "صابون الجسم",
     "Bath Salt": "ملح حمام",
     "Bath Sponge" : "ليفة استحمام",
     "Body Loofah": "غسول استحمام",
     "Shower Gel": "غسول حميمي",
-
     "Intimate" : "مقشر الجسم",
     "Body Supplements": "أدوات بشرة",
     "Body Cleansing": "تظيف الجسم",
     "Waxing": "شمع الجسم",
     "Deodorant": "مزيل عرق",
     "Hair Removal":"مزيل الشعر",
-
     "After Sun": "عناية التان",
     "Self Tanning": "تان تسمير",
-
     "Primer & Base": "برايمر للوجه",
     "Foundation":"كريم الاساس",
     "Powder": "بودرة الوجه",
@@ -149,7 +133,6 @@
     "Make up fixing": "مثبت مكياج",
     "Make up Pads": "لبادة ازالة مكياج",
     "Gift Sets": "طقم هدايا",
-
     "Eye Shadow": "ظل للعيون",
     "Brow liner": "محدد حواجب",
     "Brow Mascara":"مسكارا حواجب" ,
@@ -161,7 +144,6 @@
     "Eye Make Up Remover": "مزيل مكياج",
     "Lenses": "عدسات العين",
     "Brow & Lashes Tools":  "معدات للحواجب والرموش",
-
     "Lipstick":"قلم شفاه" ,
     "lip plumper": "مكبر شفاه",
     "Lip scrub": "مقشر شفاه",
@@ -169,7 +151,6 @@
     "Lip Liner": "محدد شفاه",
     "Lip Stain": "ملون شفاه",
     "Gloss": "ملمع شفاه",
-
     "Nail Polish":"طلاء اظافر" ,
     "Nail file": "مبرد اظافر",
     "Nail Tools": "معدات للأظافر",
@@ -179,67 +160,51 @@
     "Base Coat & Top Coats": "طلاء قاعدي للأظافر",
     "Nail Kit": "طقم اظافر",
     "Gift Set": "طقم هدايا",
-
     "Hair Dyes": "صبغات الشعر",
     "Hair Treatment": "معالجات الشعر",
     "Hair Accessories": "اكسسوارات الشعر",
-
     "Hair Shampoo": "شامبو الشعر",
     "Hair Conditioner": "بلسم الشعر",
-
     "Henna" : "حنا الشعر" ,
     "Hair Powder": "بوردة شعر",
     "Hair Dye": "صبغات الشعر",
     "Temporary Hair Dye": "صبغات شعر مؤقتة",
-
     "Hair Spray": "بخاخ للشعر",
     "Hair Crystal": "كريستال الشعر",
     "Hair Cream": "كريم الشعر",
     "Hair Oil": "زيوت الشعر",
     "Hair Ampoules": "امبولات الشعر",
     "Hair Serum": "سيروم الشعر",
-
     "Hair Brush":  "فرش شعر",
     "Hair Comb": "مشط شعر",
     "Hair Apron": "مريلة شعر",
     "Hair Scissors": "مقص شعر",
     "Hair Clippers": "ملاقط الشعر",
     "Hair Rollers": "لفافات للشعر",
-
     "Tooth Care": "العناية بالأسنان",
     "Gums Care": "العناية باللثة",
     "Mouth fresher": "منعش الفم",
     "Tooth Whitening":"مبيضات اسنان",
     "Lips Care": "العناية بالشفاه",
-
     "Toothpaste": "معجون الاسنان",
     "Toothbrush": "فرشاة الاسنان",
     "Dental Floss": "اعواد للأسنان",
     "Toothpick": "خيوط للأسنان",
-
     "Mouthwash": "غسول الفم",
     "Water Flosser": "رذاذ الماء",
-
     "Mouth Spray": "منعش الفم",
     "Chewing Gum": "علك القرفة",
-
     "Teeth Whitening Masks": "قناع تبييض الأسنان",
-
     "Lip Balm": "ترطيب الشفاه",
-
     "Hand Moisturising":  "مرطب اليدين",
     "Nails Care": "العناية بالأظافر",
     "Hand Treatment": "معالج اليدين",
-
     "Moisturizing Gloves": "قفازات ترطيب",
     "Hand Cream": "كريم اليدين",
     "Hand Lotion": "لوشن اليدين",
-
     "Nail Moisturizer": "ترطيب الأظافر",
-
     "Crack and Roughness Treatment": "علاج تعرق اليدين",
     "Sweat Treatment":  "مرطب اليدين",
-
     "Foot Moisturising": "مرطب القدمين",
     "Skin Exfoliators": "مقشر الجلد",
     "Foots Care Tools": "ادوات العناية بالقدمين",
@@ -254,7 +219,6 @@
     "Body Care Kit": "ادوات رعاية القدمين",
     "Foot Deodorant": "علاج تعرق القدمين",
     "Effervescent Tablets":  "حمام فوار",
-
     "Diapers & Changing": "غيار الاطفال والحفاظات",
     "Mommy Care": "العناية بالأم",
     "Child Care": "العناية بالطفل",
@@ -275,7 +239,6 @@
     "Baby Wash": "غسول أطفال",
     "Baby Gift Set": "هدايا اطفال",
     "Baby Powder": "بودرة اطفال",
-
     "Men Accessories": "اكسسوارات رجال",
     "Women Accessories": "اكسسوارات نسائية",
     "Child Accessories": "اكسسوارات اطفال",
@@ -297,7 +260,6 @@
     "Hair Clip": "فرش شعر",
     "Baby Wipe": "ليفة اطفال",
     "Baby Pacifier": "لهاية اطفال",
-
     "EAU DE Toilette (EDT)": "ماء تواليت",
     "Eau DE Perfume": "عطر مركز",
     "Oriantel Perfume": "عطور شرقية",
@@ -311,7 +273,6 @@
     "Local Oriental Perfumes": "مورد محلي",
     "Women Set": "طقم نسائي",
     "Men Set": "طقم رجالي",
-
     "Measurement Machines": "أجهزة قياس",
     "Muscle Relaxation": "مسكنات وريلاكس",
     "Medical Devices": "معدات طبية",
@@ -326,7 +287,6 @@
     "Supplements": "مكملات",
     "Backache Relief Patches": "لاصقات لألم الضهر",
     "First Aid Kit": "حقيبة ألأسعافات الأولية",
-
     "Antiseptics": "مطهرات",
     "Fregrance": "معطرات",
     "Batteries": "بطاريات",
@@ -342,7 +302,6 @@
     "Disposable Napkins": "مناديل للأستخدام الواحد",
     "Wooden Cotton Swabs": "أعواد خشب الشمع",
     "Ear Cotton Swabs": "أعواد قطنية",
-
     "Hair Devices": "أجهزة الشعر",
     "Head Device": "أجهزة الرأس",
     "Body Devices": "أجهزة الجسم",
@@ -357,7 +316,6 @@
     "Shaving and Hair Removal Machines": "مزيل القص",
     "Foot Bath": "مغطس للقدم",
     "Waxing Machines":  "مسبح الشمع",
-
     "Afle":"أفلي",
     "La Roche posay":"لاروش",
     "Agrado":"أجرادو",
@@ -508,7 +466,6 @@
     "Laikou":"لايكو",
     "TECE":"تي سي",
     "OZ Naturals":"اوز ناتشورالز",
-    "Missha":"ميشا",
     "Vaseline":"فازلين",
     "All Brands":"جميع البرندات",
     "Products":"منتجات",
@@ -516,15 +473,24 @@
     "SAR":"ر.س",
     "Your cart is empty.":"السلة فارغة,",
     "Total :":" :الأجمالي",
-
     "Phone No.":"رقم الهاتف",
-  "Please Enter Phone Number":"من فضلك ادخل رقم الهاتف",
-  "Phone Number should be at least 12 Number":"رقم الهاتف يجب ان يكون 12 رقم علي الاقل",
-  "User Name":"أسم المستخدم",
-  "Please Enter Your Name":"من فضلك ادخل اسمك",
-"added to cart, press to show":"اضيف الي السله.اضغط للعرض"  ,
-"added to favourite, press to show":"اضيف الي المفضلة.اضغط للغرض",
-"Registration Successful":"تم تسجيل الدخول بنجاح"
+    "Please Enter Phone Number":"من فضلك ادخل رقم الهاتف",
+    "Phone Number should be at least 12 Number":"رقم الهاتف يجب ان يكون 12 رقم علي الاقل",
+    "User Name":"أسم المستخدم",
+    "Please Enter Your Name":"من فضلك ادخل اسمك",
+    "added to cart, press to show":"اضيف الي السله.اضغط للعرض"  ,
+    "added to favourite, press to show":"اضيف الي المفضلة.اضغط للغرض",
+    "Registration Successful":"تم تسجيل الدخول بنجاح",
+    "Login":"تسجيل الدخول",
+    "Register": "تسجيل",
+    "Sign In": "تسجيل الدخول",
+    "Sign in with Google": "تسجيل الدخول باستخدام جوجل",
+    "Please check your phone for the OTP.": "يرجى التحقق من هاتفك للحصول على OTP.",
+    "Verify Account": "تحقق من الحساب",
+    "Verification Successful!": "تم التحقق بنجاح!",
+    "Enter the OTP sent to": "أدخل OTP المرسل إلى",
+    "Verify": "تحقق"
+
 
 
 

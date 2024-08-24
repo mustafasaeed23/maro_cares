@@ -2,8 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:maro/core/constence/Strings.dart';
-import 'package:maro/core/theme/color_manager.dart';
 import 'package:maro/core/theme/styles_manager.dart';
 import 'package:maro/featuers/Favourites/cubit.dart';
 import 'package:maro/featuers/Favourites/screens/favourites_screen.dart';
