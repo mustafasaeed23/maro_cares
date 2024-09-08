@@ -47,6 +47,8 @@ class AppRouter {
                 ));
       case createOrder:
         return MaterialPageRoute(builder: (_) => const CreateOrderScreen());
+      case allOrderScreen:
+        return MaterialPageRoute(builder: (_) => const AllOrdersScreen(orderItems: [],));
 
       case profileUserScreen:
         return MaterialPageRoute(

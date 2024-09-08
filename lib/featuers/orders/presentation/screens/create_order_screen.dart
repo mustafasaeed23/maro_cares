@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:maro/core/constence/Strings.dart';
 import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
 import 'package:maro/core/utils/validator.dart';
@@ -8,6 +9,7 @@ import 'package:maro/core/widgets/appbar_screens.dart';
 import 'package:maro/core/widgets/custom_text_form_field.dart';
 import 'package:maro/featuers/orders/data/user_model.dart';
 import 'package:maro/featuers/orders/data/user_model_service.dart';
+import 'package:maro/featuers/orders/presentation/screens/all_order_screen.dart';
 import 'package:maro/featuers/orders/presentation/widgets/fill_information_widget.dart';
 
 import 'package:dio/dio.dart';
@@ -207,17 +209,54 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                     width: double.infinity,
                   ),
                   SizedBox(height: 30.h),
-                  Center(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: MyTheme.mainPrimaryColor4,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: MyTheme.mainPrimaryColor4,
+                          ),
+                          onPressed: _submitOrder,
+                          child: Text(
+                            "Confirm".tr(),
+                            style: getBoldWhite16Style(),
+                          ),
+                        ),
                       ),
-                      onPressed: _submitOrder,
-                      child: Text(
-                        "Confirm".tr(),
-                        style: getBoldWhite16Style(),
+                      SizedBox(
+                        width: 10.w,
                       ),
-                    ),
+                      // InkWell(
+                      //   onTap: () {
+                      //     Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //         builder: (context) =>
+                      //             AllOrdersScreen(orderItems:[]),
+                      //       ),
+                      //     );
+                      //   },
+                      //   child: Expanded(
+                      //     child: Row(
+                      //       children: [
+                      //         Text(
+                      //           "All Orders".tr(),
+                      //           style: getBoldBlack10Style()
+                      //               .copyWith(fontSize: 15.sp),
+                      //         ),
+                      //         SizedBox(
+                      //           width: 10.w,
+                      //         ),
+                      //         Icon(
+                      //           Icons.archive,
+                      //           size: 20.sp,
+                      //           color: MyTheme.mainPrimaryColor4,
+                      //         )
+                      //       ],
+                      //     ),
+                      //   ),
+                      // )
+                    ],
                   ),
                   SizedBox(height: 30.h),
                 ],

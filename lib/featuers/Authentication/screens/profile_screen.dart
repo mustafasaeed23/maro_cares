@@ -95,27 +95,7 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(
                 height: 80.h,
               ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed(allOrderScreen);
-                },
-                child: Row(
-                  children: [
-                    Text(
-                      "All Orders".tr(),
-                      style: getBoldBlack10Style().copyWith(fontSize: 15.sp),
-                    ),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    Icon(
-                      Icons.archive,
-                      size: 20.sp,
-                      color: MyTheme.mainPrimaryColor4,
-                    )
-                  ],
-                ),
-              )
+              
             ],
           ),
         ),
