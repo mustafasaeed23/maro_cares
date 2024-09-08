@@ -7,7 +7,8 @@ import 'package:maro/featuers/Home/Products/Data/model.dart';
 class CartBloc extends Bloc<CartEvent, CartState> {
   final ApiManagerApplyCoupon _apiManager;
 
-  CartBloc(this._apiManager) : super(CartState(cartItems: [], productCounts: {})) {
+  CartBloc(this._apiManager)
+      : super(CartState(cartItems: [], productCounts: {})) {
     on<AddProductToCart>(_onAddProductToCart);
     on<RemoveProductFromCart>(_onRemoveProductFromCart);
     on<IncrementProductQuantity>(_onIncrementProductQuantity);
@@ -73,15 +74,18 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         emit(state.copyWith(
           discount: discount,
           couponMessage: 'Coupon applied successfully!',
+          couponApplied: true,
         ));
       } else {
         emit(state.copyWith(
           couponMessage: response['message'] ?? 'Failed to apply coupon.',
+          couponApplied: false,
         ));
       }
     } catch (e) {
       emit(state.copyWith(
         couponMessage: 'Error applying coupon: $e',
+        couponApplied: false,
       ));
     }
   }

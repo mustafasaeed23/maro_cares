@@ -12,6 +12,8 @@ import 'package:maro/featuers/Home/Products/screens/products_details.dart';
 class FavoriteScreen extends StatelessWidget {
     final LanguageManagerAPi languageManager = LanguageManagerAPi();
 
+  FavoriteScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +39,8 @@ class FavoriteScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pushNamed('/');
                 },
-                icon: Center(
-                  child: const Icon(
+                icon: const Center(
+                  child: Icon(
                     Icons.arrow_back,
                     size: 28,
                     color: Colors.deepPurple,
@@ -103,9 +105,9 @@ class FavoriteScreen extends StatelessWidget {
                         ],
                       ),
                       trailing: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.delete,
-                          color: const Color.fromARGB(255, 219, 36, 23),
+                          color: Color.fromARGB(255, 219, 36, 23),
                         ),
                         onPressed: () {
                           context.read<FavoriteCubit>().removeFavorite(product);

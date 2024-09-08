@@ -188,7 +188,7 @@ class _BrandsScreenListState extends State<BrandsScreenList> {
                                 },
                                 child: Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.shopping_cart,
                                       color: Colors.white,
                                       size: 15,

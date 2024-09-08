@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
-import 'package:maro/core/constence/Strings.dart';
 import 'package:maro/core/theme/styles_manager.dart';
+import 'package:maro/featuers/Authentication/Data/cubit/auth_cubit.dart';
+import 'package:maro/featuers/Authentication/screens/auth_promot_screen.dart';
+import 'package:maro/featuers/Authentication/screens/profile_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -33,54 +35,37 @@ class AuthScreen extends StatelessWidget {
             child: Center(
               child: IconButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/');
+                  Navigator.of(context).pop();
                 },
                 icon: const Icon(
                   Icons.arrow_back,
                   size: 28,
                   color: Colors.deepPurple,
                 ),
-                color: const Color(0xffe6d9e8),
               ),
             ),
           ),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Center(
-            child: Lottie.asset(
-              'assets/animations/Animation - 1718245198132.json',
-              width: 250.w,
-            ),
-          ),
-          SizedBox(
-            height: 20.h,
-          ),
-          Center(
-            child: Text(
-              "Please, Sign up to show your Profile".tr(),
-              style: getSemiBoldBlack12Style(),
-            ),
-          ),
-          SizedBox(
-            height: 20.h,
-          ),
-          SizedBox(
-            width: 170.w,
-            height: 50.h,
-            child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, login);
-                },
-                child: Text(
-                  "Sign up".tr(),
-                  style: getBoldBlue14Style(),
-                )),
-          )
-        ],
+      body: BlocConsumer<AuthCubit, AuthState>(
+        listener: (context, state) {
+          if (state is AuthSuccess) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Welcome, ${state.userName}!')),
+            );
+          } else if (state is AuthFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.error)),
+            );
+          }
+        },
+        builder: (context, state) {
+          if (state is AuthSuccess) {
+            return ProfileScreen(userName: state.userName, phoneNumber: state.phoneNumber, invtationBy: state.invtationCode,);
+          } else {
+            return const AuthPrompt();
+          }
+        },
       ),
     );
   }

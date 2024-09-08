@@ -19,7 +19,7 @@ class AuthService {
       "userName": userName,
       "email": userName,
       "phoneNumber": phoneNumber,
-      "invitationBy": phoneNumber
+      "invitationBy": invitationBy
     });
 
     try {
