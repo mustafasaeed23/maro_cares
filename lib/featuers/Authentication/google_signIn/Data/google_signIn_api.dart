@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 class SignInGoogleApi {
   final Dio _dio = Dio();
-  
+
   Future<Map<String, dynamic>> authenticateGoogle(String accessToken) async {
     try {
       var response = await _dio.post(

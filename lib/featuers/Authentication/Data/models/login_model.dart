@@ -1,18 +1,18 @@
-class Wallet {
+class loginModel {
   String? message;
-  int? balance;
+  String? userToken;
 
-  Wallet({this.message, this.balance});
+  loginModel({this.message, this.userToken});
 
-  Wallet.fromJson(Map<String, dynamic> json) {
+  loginModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
-    balance = json['balance'];
+    userToken = json['userToken'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['message'] = this.message;
-    data['balance'] = this.balance;
+    data['userToken'] = this.userToken;
     return data;
   }
 }

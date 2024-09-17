@@ -68,7 +68,6 @@ class _HomeBrandsScreenState extends State<HomeBrandsScreen> {
               itemBuilder: (context, index) {
                 var product = products[index];
                 return ProductCardHome(product: product);
-               
               },
             );
           }

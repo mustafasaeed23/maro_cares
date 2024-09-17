@@ -3,26 +3,25 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:maro/core/widgets/loading_indicator.dart';
 
 class UiUtils {
-
   static void showLoading(BuildContext context) => showDialog(
-      context: context, builder: (_) => PopScope(
-        canPop: false,
-        child: AlertDialog(
-          content: SizedBox(
-            height: MediaQuery.of(context).size.height *0.2,
-            child: const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                LoadingIndicator(),
-              ],
+      context: context,
+      builder: (_) => PopScope(
+          canPop: false,
+          child: AlertDialog(
+            content: SizedBox(
+              height: MediaQuery.of(context).size.height * 0.2,
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  LoadingIndicator(),
+                ],
+              ),
             ),
-          ),
-        )));
-
+          )));
 
   static void hideLoading(BuildContext context) => Navigator.pop(context);
 
-  static void showMessage(String message){
+  static void showMessage(String message) {
     Fluttertoast.showToast(msg: message, toastLength: Toast.LENGTH_SHORT);
   }
 }

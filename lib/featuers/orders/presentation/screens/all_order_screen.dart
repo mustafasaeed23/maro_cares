@@ -20,7 +20,7 @@ class AllOrdersScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: orderItems.length,
         itemBuilder: (context, index) {
-          final product = orderItems[index]; 
+          final product = orderItems[index];
           return Card(
             margin: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
             child: ListTile(

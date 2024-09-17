@@ -35,7 +35,8 @@ class FavoriteCubit extends Cubit<List<Product>> {
 
   Future<void> _saveFavorites(List<Product> favorites) async {
     final prefs = await SharedPreferences.getInstance();
-    final favoritesJson = json.encode(favorites.map((p) => p.toJson()).toList());
+    final favoritesJson =
+        json.encode(favorites.map((p) => p.toJson()).toList());
     await prefs.setString('favorites', favoritesJson);
   }
 }

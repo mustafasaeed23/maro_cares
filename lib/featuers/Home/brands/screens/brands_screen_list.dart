@@ -101,8 +101,10 @@ class _BrandsScreenListState extends State<BrandsScreenList> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) =>
-                                      ProductsDetailsScreen(product: product, languageManager: languageManager,),
+                                  builder: (_) => ProductsDetailsScreen(
+                                    product: product,
+                                    languageManager: languageManager,
+                                  ),
                                 ),
                               );
                             },

@@ -38,15 +38,15 @@ class ShoppingAds extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-           ClipRRect(
-      borderRadius: BorderRadius.circular(10.r),
-      child:Image.asset(
-            imagePath,
-            height: 150.h,
-            width: 345.w,
-            fit: BoxFit.fill,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10.r),
+            child: Image.asset(
+              imagePath,
+              height: 150.h,
+              width: 345.w,
+              fit: BoxFit.fill,
+            ),
           ),
-           ),
           SizedBox(
             height: 20.h,
           ),

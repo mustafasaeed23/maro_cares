@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:maro/featuers/Home/categories/widgets/products_categories_screen.dart';
@@ -6,7 +5,7 @@ import 'package:maro/featuers/side_menu/Data/api_manger.dart';
 
 import '../../../core/theme/styles_manager.dart';
 
-void bodyCare(BuildContext context, ApiManager apiManager){
+void bodyCare(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
@@ -27,9 +26,9 @@ void bodyCare(BuildContext context, ApiManager apiManager){
               ],
             )),
         PopupMenuItem(
-          onTap: (){
-            bodyMoisturisingSubCategoreis(context, apiManager);
-          },
+            onTap: () {
+              bodyMoisturisingSubCategoreis(context, apiManager);
+            },
             value: 1,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,9 +44,9 @@ void bodyCare(BuildContext context, ApiManager apiManager){
               ],
             )),
         PopupMenuItem(
-          onTap: (){
-            bathingCareSubCategories(context, apiManager);
-          },
+            onTap: () {
+              bathingCareSubCategories(context, apiManager);
+            },
             value: 2,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,9 +62,9 @@ void bodyCare(BuildContext context, ApiManager apiManager){
               ],
             )),
         PopupMenuItem(
-          onTap: (){
-            personalCareSubCategories(context, apiManager);
-          },
+            onTap: () {
+              personalCareSubCategories(context, apiManager);
+            },
             value: 3,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,9 +80,9 @@ void bodyCare(BuildContext context, ApiManager apiManager){
               ],
             )),
         PopupMenuItem(
-          onTap: (){
-            tanBodySubCategories(context, apiManager);
-          },
+            onTap: () {
+              tanBodySubCategories(context, apiManager);
+            },
             value: 4,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,17 +100,19 @@ void bodyCare(BuildContext context, ApiManager apiManager){
       ]);
 }
 
-void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
+void bodyMoisturisingSubCategoreis(
+    BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Body Cream".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Cream".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -120,15 +121,15 @@ void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Body Gel".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Gel".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -137,15 +138,15 @@ void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Body Firming & Lifting".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Firming & Lifting".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -154,15 +155,15 @@ void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 3,
-          child: Text("Anti Aging".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Anti Aging".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -171,15 +172,15 @@ void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 4,
-          child: Text("Body Whitening".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Whitening".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -188,15 +189,15 @@ void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 5,
-          child: Text("Body Lotion".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Lotion".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -205,15 +206,15 @@ void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 6,
-          child: Text("Body Mist".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Mist".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -222,15 +223,15 @@ void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 7,
-          child: Text("Body Powder".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Powder".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -239,15 +240,15 @@ void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 8,
-          child: Text("Ampoles".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Ampoles".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -256,15 +257,15 @@ void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 9,
-          child: Text("Oil Control".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Oil Control".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -273,26 +274,23 @@ void bodyMoisturisingSubCategoreis(BuildContext context ,ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
-
       ]);
 }
 
-void bathingCareSubCategories(BuildContext context, ApiManager apiManager){
+void bathingCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Bath Soap".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Bath Soap".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -301,15 +299,15 @@ void bathingCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Bath Salt".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Bath Salt".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -318,15 +316,15 @@ void bathingCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Bath Sponge".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Bath Sponge".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -335,15 +333,15 @@ void bathingCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 3,
-          child: Text("Body Loofah".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Loofah".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -352,15 +350,15 @@ void bathingCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 4,
-          child: Text("Shower Gel".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Shower Gel".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -369,24 +367,23 @@ void bathingCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
       ]);
 }
 
-void personalCareSubCategories(BuildContext context, ApiManager apiManager){
+void personalCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Intimate".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Intimate".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -395,15 +392,15 @@ void personalCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Exfoliator".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Exfoliator".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -412,15 +409,15 @@ void personalCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Body Supplements".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Supplements".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -429,15 +426,15 @@ void personalCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 3,
-          child: Text("Body Cleansing".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Cleansing".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -446,15 +443,15 @@ void personalCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 4,
-          child: Text("Waxing".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Waxing".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -463,15 +460,15 @@ void personalCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 5,
-          child: Text("Deodorant".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Deodorant".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -480,15 +477,15 @@ void personalCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 6,
-          child: Text("Hair Removal".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Removal".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -497,30 +494,23 @@ void personalCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
-
-
-
-
-
       ]);
 }
 
-void tanBodySubCategories(BuildContext context, ApiManager apiManager){
+void tanBodySubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("After Sun".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "After Sun".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -529,15 +519,15 @@ void tanBodySubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 0,
-          child: Text("Self Tanning".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Self Tanning".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -546,9 +536,7 @@ void tanBodySubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
       ]);
 }

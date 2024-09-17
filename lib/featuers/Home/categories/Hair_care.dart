@@ -5,7 +5,7 @@ import 'package:maro/featuers/side_menu/Data/api_manger.dart';
 
 import '../../../core/theme/styles_manager.dart';
 
-void hairCare(BuildContext context, ApiManager apiManager){
+void hairCare(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
@@ -26,7 +26,7 @@ void hairCare(BuildContext context, ApiManager apiManager){
               ],
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               bathingAndCareSubCategories(context, apiManager);
             },
             value: 1,
@@ -35,7 +35,7 @@ void hairCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               hairDyesSubCategories(context, apiManager);
             },
             value: 1,
@@ -44,7 +44,7 @@ void hairCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               hairTreatmentSubCategories(context, apiManager);
             },
             value: 1,
@@ -53,7 +53,7 @@ void hairCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               hairAccessoriesSubCategories(context, apiManager);
             },
             value: 1,
@@ -61,21 +61,21 @@ void hairCare(BuildContext context, ApiManager apiManager){
               "Hair Accessories".tr(),
               style: getMediumBlack16Style(),
             )),
-
       ]);
 }
 
-void bathingAndCareSubCategories(BuildContext context, ApiManager apiManager){
+void bathingAndCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Hair Shampoo".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Shampoo".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -84,15 +84,15 @@ void bathingAndCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Hair Conditioner".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Conditioner".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -101,23 +101,23 @@ void bathingAndCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
       ]);
 }
-void hairDyesSubCategories(BuildContext context, ApiManager apiManager){
+
+void hairDyesSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Henna".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Henna".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -126,15 +126,15 @@ void hairDyesSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Hair Powder".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Powder".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -143,15 +143,15 @@ void hairDyesSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Hair Dye".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Dye".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -160,15 +160,15 @@ void hairDyesSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 3,
-          child: Text("Temporary Hair Dye".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Temporary Hair Dye".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -177,23 +177,23 @@ void hairDyesSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
       ]);
 }
-void hairTreatmentSubCategories(BuildContext context, ApiManager apiManager){
+
+void hairTreatmentSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Hair Spray".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Spray".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -202,15 +202,15 @@ void hairTreatmentSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Hair Crystal".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Crystal".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -219,15 +219,15 @@ void hairTreatmentSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Hair Cream".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Cream".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -236,15 +236,15 @@ void hairTreatmentSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 3,
-          child: Text("Hair Oil".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Oil".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -253,15 +253,15 @@ void hairTreatmentSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 4,
-          child: Text("Hair Ampoules".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Ampoules".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -270,15 +270,15 @@ void hairTreatmentSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 5,
-          child: Text("Hair Serum".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Serum".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -287,23 +287,23 @@ void hairTreatmentSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
       ]);
 }
-void hairAccessoriesSubCategories(BuildContext context, ApiManager apiManager){
+
+void hairAccessoriesSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Hair Brush".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Brush".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -312,15 +312,15 @@ void hairAccessoriesSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Hair Comb".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Comb".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -329,15 +329,15 @@ void hairAccessoriesSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Hair Apron".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Apron".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -346,15 +346,15 @@ void hairAccessoriesSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 3,
-          child: Text("Hair Scissors".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Scissors".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -363,15 +363,15 @@ void hairAccessoriesSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 4,
-          child: Text("Hair Clippers".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Clippers".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -380,15 +380,15 @@ void hairAccessoriesSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 5,
-          child: Text("Hair Rollers".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hair Rollers".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -397,9 +397,7 @@ void hairAccessoriesSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
       ]);
 }

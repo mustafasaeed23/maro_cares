@@ -5,6 +5,7 @@ import 'package:maro/featuers/Authentication/screens/auth_screen.dart';
 import 'package:maro/featuers/Authentication/screens/profile_screen.dart';
 import 'package:maro/featuers/Authentication/screens/register_screen.dart';
 import 'package:maro/featuers/Authentication/screens/login_screen.dart';
+import 'package:maro/featuers/Authentication/screens/verification_screen.dart';
 import 'package:maro/featuers/Cart/Data/cart_api_manger.dart';
 import 'package:maro/featuers/Cart/bloc/cart_bloc.dart';
 import 'package:maro/featuers/Cart/screen/cart_screen.dart';
@@ -48,7 +49,10 @@ class AppRouter {
       case createOrder:
         return MaterialPageRoute(builder: (_) => const CreateOrderScreen());
       case allOrderScreen:
-        return MaterialPageRoute(builder: (_) => const AllOrdersScreen(orderItems: [],));
+        return MaterialPageRoute(
+            builder: (_) => const AllOrdersScreen(
+                  orderItems: [],
+                ));
 
       case profileUserScreen:
         return MaterialPageRoute(
@@ -57,6 +61,11 @@ class AppRouter {
                   phoneNumber: '',
                   invtationBy: '',
                 ));
+      case verificationScreen:
+        final String phoneNumber = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => VerificationScreen(phoneNumber: phoneNumber),
+        );
 
       default:
         return MaterialPageRoute(builder: (_) => const HomeScreen());

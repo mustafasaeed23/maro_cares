@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:maro/core/constence/Strings.dart';
 import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
 import 'package:maro/core/widgets/custom_text_form_field.dart';
 import 'package:maro/featuers/Authentication/Data/cubit/auth_cubit.dart';
 import 'package:maro/featuers/Authentication/google_signIn/google_signIn_widget.dart';
 import 'package:maro/featuers/Authentication/screens/register_screen.dart';
+import 'package:maro/featuers/Authentication/screens/verification_screen.dart'; // Import verification screen
 
 class LoginScreen extends StatefulWidget {
   static const String routeName = 'login';
@@ -62,7 +64,8 @@ class _LoginScreenState extends State<LoginScreen> {
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccess) {
-            _showSuccessDialog(context, "Login Successful!".tr());
+            _navigateToVerificationScreen(
+                context); // Updated to navigate to verification
           } else if (state is AuthFailure) {
             _showFailureDialog(context, state.error);
           }
@@ -94,6 +97,16 @@ class _LoginScreenState extends State<LoginScreen> {
                             controller: _phoneNumberController,
                             inputType: TextInputType.number,
                             width: 200.w,
+                            validator: (text) {
+                              if (text == null || text.trim().isEmpty) {
+                                return "Enter Phone Number".tr();
+                              }
+                              if (text.length < 9) {
+                                return "Wrong Phone Number, should contain 9 numbers"
+                                    .tr();
+                              }
+                              return null;
+                            },
                           ),
                         ),
                         SizedBox(width: 10.w),
@@ -118,7 +131,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         if (_formKey.currentState?.validate() == true) {
                           context.read<AuthCubit>().loginUser(
-                                phoneNumber: _phoneNumberController.text, userName: '',
+                                phoneNumber: _phoneNumberController.text,
+                                userName: '',
                               );
                         }
                       },
@@ -149,23 +163,12 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _showSuccessDialog(BuildContext context, String message) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text("Success".tr()),
-          content: Text(message),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('OK'),
-            ),
-          ],
-        );
-      },
+  // Navigate to verification screen after successful login
+  void _navigateToVerificationScreen(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      verificationScreen,
+      arguments: _phoneNumberController.text,
     );
   }
 

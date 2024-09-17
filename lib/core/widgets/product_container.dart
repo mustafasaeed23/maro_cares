@@ -7,7 +7,7 @@ class ProductContainer extends StatelessWidget {
   String imagePath;
   String title;
 
-  ProductContainer({super.key, required this.imagePath , required this.title});
+  ProductContainer({super.key, required this.imagePath, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,14 @@ class ProductContainer extends StatelessWidget {
       ),
       child: Column(children: [
         Center(child: Image.asset(imagePath)),
-        SizedBox(height: 5.h,),
-         Text(title, style: getRegularBlack12Style(),)]),
+        SizedBox(
+          height: 5.h,
+        ),
+        Text(
+          title,
+          style: getRegularBlack12Style(),
+        )
+      ]),
     );
   }
 }

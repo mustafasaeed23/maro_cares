@@ -31,7 +31,6 @@ class GoogleSigninController {
       } else {
         // _showErrorDialog(context, 'Failed to obtain Google ID token.');
         Navigator.of(context).pushNamed(home);
-
       }
     }
   }

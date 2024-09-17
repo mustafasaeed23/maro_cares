@@ -519,6 +519,9 @@
   "InvationBy": "InvationBy",
   "invtationBy :": "invtationBy :",
   "There is no any money in your wallet":"There is no any money in your wallet",
-  "All Orders":"All Orders"
+  "All Orders":"All Orders",
+  "Verification":"Verification",
+  "Enter Phone Number":"Enter Phone Number",
+  "Wrong Phone Number, should contain 9 numbers":"Wrong Phone Number, should contain 9 numbers"
   
 }

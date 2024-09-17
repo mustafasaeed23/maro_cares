@@ -15,9 +15,12 @@ import 'package:maro/featuers/user/api_services_user.dart';
 
 class ProductsDetailsScreen extends StatefulWidget {
   final Product product;
-  final LanguageManagerAPi languageManager; 
+  final LanguageManagerAPi languageManager;
 
-  const ProductsDetailsScreen({super.key, required this.product, required this.languageManager}); // Update constructor
+  const ProductsDetailsScreen(
+      {super.key,
+      required this.product,
+      required this.languageManager}); // Update constructor
 
   @override
   State<ProductsDetailsScreen> createState() => _ProductsDetailsScreenState();
@@ -71,7 +74,7 @@ class _ProductsDetailsScreenState extends State<ProductsDetailsScreen> {
         ];
 
     return Scaffold(
-      appBar:CustomAppBar(title: "") ,
+      appBar: CustomAppBar(title: ""),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

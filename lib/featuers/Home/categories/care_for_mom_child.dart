@@ -137,6 +137,7 @@ void diapersAndChangingSubCategories(
         ),
       ]);
 }
+
 void mommyCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
@@ -195,6 +196,7 @@ void mommyCareSubCategories(BuildContext context, ApiManager apiManager) {
         ),
       ]);
 }
+
 void childCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
@@ -219,7 +221,9 @@ void childCareSubCategories(BuildContext context, ApiManager apiManager) {
         ),
       ]);
 }
-void babyFoodAndToolsSubCategories(BuildContext context, ApiManager apiManager) {
+
+void babyFoodAndToolsSubCategories(
+    BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
@@ -275,9 +279,9 @@ void babyFoodAndToolsSubCategories(BuildContext context, ApiManager apiManager) 
             );
           },
         ),
-
       ]);
 }
+
 void bathingAndCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
@@ -385,11 +389,5 @@ void bathingAndCareSubCategories(BuildContext context, ApiManager apiManager) {
             );
           },
         ),
-
-
-
       ]);
 }
-
-
-

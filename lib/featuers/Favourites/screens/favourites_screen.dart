@@ -10,7 +10,7 @@ import 'package:maro/featuers/Home/Products/Data/model.dart';
 import 'package:maro/featuers/Home/Products/screens/products_details.dart';
 
 class FavoriteScreen extends StatelessWidget {
-    final LanguageManagerAPi languageManager = LanguageManagerAPi();
+  final LanguageManagerAPi languageManager = LanguageManagerAPi();
 
   FavoriteScreen({super.key});
 
@@ -78,7 +78,10 @@ class FavoriteScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => ProductsDetailsScreen(product: product, languageManager: languageManager,),
+                        builder: (_) => ProductsDetailsScreen(
+                          product: product,
+                          languageManager: languageManager,
+                        ),
                       ),
                     );
                   },

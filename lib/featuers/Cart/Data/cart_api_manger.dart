@@ -8,7 +8,8 @@ class ApiManagerApplyCoupon {
 
   Future<Map<String, dynamic>> applyCoupon(String couponCode) async {
     final headers = {
-      'Authorization': 'maroTKeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OTVkYzVmNTc1NTNiYmIzYjlkZThjMSIsImlhdCI6MTcwNDMyMDM5M30.fxRqhJmdg_VROgTyykN2amRNRDd_z3PQnfM7FzZGLbs',
+      'Authorization':
+          'maroTKeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OTVkYzVmNTc1NTNiYmIzYjlkZThjMSIsImlhdCI6MTcwNDMyMDM5M30.fxRqhJmdg_VROgTyykN2amRNRDd_z3PQnfM7FzZGLbs',
       'Language': 'en',
       'Content-Type': 'application/json',
     };

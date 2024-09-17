@@ -20,7 +20,7 @@ class TrendingProducts extends StatefulWidget {
 }
 
 class _TrendingProductCarouselScreenState extends State<TrendingProducts> {
-    final LanguageManagerAPi languageManager = LanguageManagerAPi();
+  final LanguageManagerAPi languageManager = LanguageManagerAPi();
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,10 @@ class _TrendingProductCarouselScreenState extends State<TrendingProducts> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => ProductsDetailsScreen(product: product, languageManager: languageManager,),
+                      builder: (_) => ProductsDetailsScreen(
+                        product: product,
+                        languageManager: languageManager,
+                      ),
                     ),
                   );
                 },

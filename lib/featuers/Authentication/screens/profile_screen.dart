@@ -95,7 +95,6 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(
                 height: 80.h,
               ),
-              
             ],
           ),
         ),

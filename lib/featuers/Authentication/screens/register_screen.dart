@@ -174,6 +174,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 borderRadius: BorderRadius.circular(15.r),
                               ),
                             ),
+                            validator: (text) {
+                              if (text == null || text.trim().isEmpty) {
+                                return "Enter Phone Number".tr();
+                              }
+                              if (text.length < 9) {
+                                return "Wrong Phone Number, should contain 9 numbers"
+                                    .tr();
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ],
@@ -265,17 +275,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   SizedBox(
                     height: 30.h,
                   ),
-                  SizedBox(
-                    width: 210.w,
-                    height: 50.h,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Sign in with Google",
-                        style: getBoldBlue14Style(),
-                      ),
-                    ),
-                  ),
+                  // SizedBox(
+                  //   width: 210.w,
+                  //   height: 50.h,
+                  //   child: ElevatedButton(
+                  //     onPressed: () {},
+                  //     child: Text(
+                  //       "Sign in with Google",
+                  //       style: getBoldBlue14Style(),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -299,7 +309,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 //   'userName': _userNameController.text,
                 //   'phoneNumber': phoneNumber,
                 // });
-                Navigator.of(context).pushNamed(home);
+                Navigator.of(context)
+                    .pushNamed(verificationScreen, arguments: phoneNumber);
               },
               child: const Text('OK'),
             ),

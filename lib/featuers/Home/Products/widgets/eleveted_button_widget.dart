@@ -24,9 +24,7 @@ class ElevetedButtonWidget extends StatelessWidget {
         backgroundColor: MyTheme.mainPrimaryColor4,
       ),
       onPressed: () {
-        context
-            .read<CartBloc>()
-            .add(AddProductToCart(widget.product));
+        context.read<CartBloc>().add(AddProductToCart(widget.product));
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
               content: Row(

@@ -61,7 +61,11 @@ class AuthScreen extends StatelessWidget {
         },
         builder: (context, state) {
           if (state is AuthSuccess) {
-            return ProfileScreen(userName: state.userName, phoneNumber: state.phoneNumber, invtationBy: state.invtationCode,);
+            return ProfileScreen(
+              userName: state.userName,
+              phoneNumber: state.phoneNumber,
+              invtationBy: state.invtationCode,
+            );
           } else {
             return const AuthPrompt();
           }

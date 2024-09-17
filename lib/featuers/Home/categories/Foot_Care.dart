@@ -5,7 +5,7 @@ import 'package:maro/featuers/side_menu/Data/api_manger.dart';
 
 import '../../../core/theme/styles_manager.dart';
 
-void footCare(BuildContext context, ApiManager apiManager){
+void footCare(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
@@ -26,7 +26,7 @@ void footCare(BuildContext context, ApiManager apiManager){
               ],
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               footMoisturisingSubCategories(context, apiManager);
             },
             value: 1,
@@ -35,7 +35,7 @@ void footCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               nailsCareSubCategories(context, apiManager);
             },
             value: 2,
@@ -44,7 +44,7 @@ void footCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               skinExfoliatorsSubCategories(context, apiManager);
             },
             value: 3,
@@ -53,7 +53,7 @@ void footCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               footCareToolsSubCategories(context, apiManager);
             },
             value: 4,
@@ -62,7 +62,7 @@ void footCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               footTreatmentSubCategories(context, apiManager);
             },
             value: 5,
@@ -71,7 +71,7 @@ void footCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               footBathsSubCategories(context, apiManager);
             },
             value: 6,
@@ -79,21 +79,22 @@ void footCare(BuildContext context, ApiManager apiManager){
               "Foot Baths".tr(),
               style: getMediumBlack16Style(),
             )),
-
       ]);
 }
 
-void footMoisturisingSubCategories(BuildContext context, ApiManager apiManager){
+void footMoisturisingSubCategories(
+    BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Foot Cream".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Foot Cream".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -102,15 +103,15 @@ void footMoisturisingSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Moisturizing Gloves".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Moisturizing Gloves".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -119,15 +120,15 @@ void footMoisturisingSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Foot Lotion".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Foot Lotion".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -136,24 +137,23 @@ void footMoisturisingSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
       ]);
 }
-void nailsCareSubCategories(BuildContext context, ApiManager apiManager){
+
+void nailsCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Nail Clippers".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Nail Clippers".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -162,15 +162,15 @@ void nailsCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Cuticle Nippers".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Cuticle Nippers".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -179,15 +179,15 @@ void nailsCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Nail Cooler".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Nail Cooler".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -196,24 +196,23 @@ void nailsCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
       ]);
 }
-void skinExfoliatorsSubCategories(BuildContext context, ApiManager apiManager){
+
+void skinExfoliatorsSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Exfoliating Sugar".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Exfoliating Sugar".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -222,25 +221,23 @@ void skinExfoliatorsSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
-
       ]);
 }
-void footCareToolsSubCategories(BuildContext context, ApiManager apiManager){
+
+void footCareToolsSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Body Care Kit".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Body Care Kit".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -249,25 +246,23 @@ void footCareToolsSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
-
       ]);
 }
-void footTreatmentSubCategories(BuildContext context, ApiManager apiManager){
+
+void footTreatmentSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Foot Treatment".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Foot Treatment".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -276,15 +271,15 @@ void footTreatmentSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Foot Deodorant".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Foot Deodorant".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -293,24 +288,23 @@ void footTreatmentSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
       ]);
 }
-void footBathsSubCategories(BuildContext context, ApiManager apiManager){
+
+void footBathsSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Effervescent Tablets".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Effervescent Tablets".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -319,18 +313,7 @@ void footBathsSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
-
       ]);
 }
-
-
-
-
-
-
-

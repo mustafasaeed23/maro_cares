@@ -5,7 +5,11 @@ import 'package:maro/core/widgets/custom_text_form_field.dart';
 
 class FillInformationWidget extends StatelessWidget {
   const FillInformationWidget(
-      {super.key, required this.text, required this.width, this.validator, required TextEditingController controller});
+      {super.key,
+      required this.text,
+      required this.width,
+      this.validator,
+      required TextEditingController controller});
   final String text;
   final double width;
   final String? Function(String?)? validator;

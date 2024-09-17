@@ -516,6 +516,10 @@
   "Your order has been placed successfully.": "تم ارسال الطلب بنجاح",
   "Order Successful": "تم الطلب",
   "There is no any money in your wallet": "لا يوجد مال في محفظتك",
-  "All Orders":"جميع الطلبات"
+  "All Orders":"جميع الطلبات",
+  "Verification":"تأكيد الهوية",
+  "Enter Phone Number":"أدخل رقم الهاتف",
+  "Wrong Phone Number, should contain 9 numbers":"رقم هاتف خطأ يجب ان يكون من 9 ارقام",
+  "UserName can't be empty": "يجب أدخال اسم المستخدم"
 
 }

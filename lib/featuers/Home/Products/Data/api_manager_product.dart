@@ -5,7 +5,7 @@ import 'package:maro/featuers/Home/Products/Data/model.dart';
 class ApiManagerProducts {
   final Dio dio;
   ApiManagerProducts() : dio = Dio();
- 
+
   Future<List<Product>> _fetchProducts(String sectionType) async {
     String lang = LanguageManagerAPi().currentLanguage;
 

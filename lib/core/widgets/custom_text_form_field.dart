@@ -4,14 +4,15 @@ import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField(
-      {super.key,
-      this.controller,
-      this.text,
-      this.validator,
-      this.inputType,
-      this.maxLength,
-      this.width, });
+  const CustomTextFormField({
+    super.key,
+    this.controller,
+    this.text,
+    this.validator,
+    this.inputType,
+    this.maxLength,
+    this.width,
+  });
 
   final TextEditingController? controller;
   final String? text;

@@ -1,133 +1,72 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:maro/core/theme/styles_manager.dart';
+import 'package:maro/featuers/Home/categories/widgets/products_categories_screen.dart';
+import 'package:maro/featuers/side_menu/Data/api_manger.dart';
+import '../theme/styles_manager.dart';
 
-class CategoriesWidget extends StatelessWidget {
-  const CategoriesWidget({super.key});
+class Categories extends StatelessWidget {
+  const Categories({super.key});
+
+  // A method to handle the navigation to HomeCategoriesScreen
+  void _navigateToHomeCategories(
+      BuildContext context, String category, ApiManager apiManager) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ProductCategoriesScreen(
+          category: category.tr(),
+          apiManager: apiManager,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> categories = [
+      {'name': "Skincare".tr(), 'image': 'assets/images/skincare.png'},
+      {'name': "Makeup".tr(), 'image': 'assets/images/skincare.png'},
+      {'name': "Haircare".tr(), 'image': 'assets/images/skincare.png'},
+      {'name': "Fragrance".tr(), 'image': 'assets/images/skincare.png'},
+      {'name': "Bodycare".tr(), 'image': 'assets/images/skincare.png'},
+      {'name': "Tools".tr(), 'image': 'assets/images/skincare.png'},
+    ];
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: [
-          Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 50.r,
-                child: Image.asset("assets/images/gift.png"),
+        children: categories.map((category) {
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: GestureDetector(
+              onTap: () => _navigateToHomeCategories(
+                  context, category['name']!, ApiManager()),
+              child: Column(
+                children: [
+                  Container(
+                    width: 100.w,
+                    height: 100.w,
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                    child: ClipOval(
+                      child: Image.asset(
+                        category['image']!,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8.h),
+                  Text(
+                    category['name']!,
+                    style: getBoldBlue14Style(),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
-              SizedBox(height: 10.h,),
-              Text("Gift", 
-              style: getBoldBlue16Style())
-            ],
-          ),
-          SizedBox(width: 20.w,),
-           Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 50.r,
-                child: Image.asset("assets/images/suntan.png"),
-              ),
-              SizedBox(height: 10.h,),
-              Text("Suntan",
-               style: getBoldBlue16Style())
-            ],
-          ),
-          SizedBox(width: 15.w,),
-           Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 50.r,
-                child: Image.asset("assets/images/skincare.png"),
-              ),
-              SizedBox(height: 10.h,),
-              Text("Skincare", 
-              style: getBoldBlue16Style())
-            ],
-          ),
-          SizedBox(width: 15.w,),
-           Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 50.r,
-                child: Image.asset("assets/images/qv.png"),
-              ),
-              SizedBox(height: 10.h,),
-              Text("QV",
-               style: getBoldBlue16Style())
-            ],
-          ),
-          SizedBox(width: 20.w,),
-           Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 50.r,
-                child: Image.asset("assets/images/device.png"),
-              ),
-              SizedBox(height: 10.h,),
-              Text("Device",
-               style: getBoldBlue16Style())
-            ],
-          ),
-          SizedBox(width: 20.w,),
-           Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 50.r,
-                child: Image.asset("assets/images/cetaphil.png"),
-              ),
-              SizedBox(height: 10.h,),
-              Text("Cetaphil", 
-              style: getBoldBlue16Style())
-            ],
-          ),
-          SizedBox(width: 20.w,),
-           Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 50.r,
-                child:  Image.asset("assets/images/biooderma.png"),
-              ),
-              SizedBox(height: 10.h,),
-              Text("Biooderma",
-               style: getBoldBlue16Style())
-            ],
-          ),
-          SizedBox(width: 20.w,),
-           Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 50.r,
-                child: Image.asset("assets/images/man.png"),
-              ),
-              SizedBox(height: 10.h,),
-              Text("Man",
-               style: getBoldBlue16Style())
-            ],
-          ),
-          SizedBox(width: 20.w,),
-           Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.transparent,
-                child: Image.asset("assets/images/medcial.png"),
-                radius: 50.r,
-              ),
-              SizedBox(height: 10.h,),
-              Text("Medical", 
-              style: getBoldBlue16Style())
-            ],
-          ),
-        ],
+            ),
+          );
+        }).toList(),
       ),
     );
   }

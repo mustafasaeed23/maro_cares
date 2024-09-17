@@ -29,57 +29,59 @@ class RelatedProductsCarousel extends StatelessWidget {
             initialPage: 0,
             enableInfiniteScroll: true,
             autoPlay: true,
-            autoPlayInterval:const Duration(seconds: 3),
+            autoPlayInterval: const Duration(seconds: 3),
             autoPlayAnimationDuration: const Duration(milliseconds: 800),
             scrollDirection: Axis.horizontal,
           ),
           items: relatedProducts?.map<Widget>((relatedProduct) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Card(
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0.r),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(10.0.r)),
-                        child: Image.network(
-                          relatedProduct.images?.isNotEmpty == true
-                              ? relatedProduct.images![0]
-                              : 'https://via.placeholder.com/150',
-                          fit: BoxFit.cover,
-                          height: 150.h,
-                          width: double.infinity,
-                        ),
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0.r),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Text(
-                              relatedProduct.productName ?? 'No name',
-                              style: getMediumBlack14Style(),
-                              maxLines: 1,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(10.0.r)),
+                            child: Image.network(
+                              relatedProduct.images?.isNotEmpty == true
+                                  ? relatedProduct.images![0]
+                                  : 'https://via.placeholder.com/150',
+                              fit: BoxFit.cover,
+                              height: 150.h,
+                              width: double.infinity,
                             ),
-                            SizedBox(height: 5.h),
-                            Text(
-                              relatedProduct.price != null
-                                  ? "${relatedProduct.price} SAR"
-                                  : 'No price',
-                              style: getMediumBlack12Style(),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  relatedProduct.productName ?? 'No name',
+                                  style: getMediumBlack14Style(),
+                                  maxLines: 1,
+                                ),
+                                SizedBox(height: 5.h),
+                                Text(
+                                  relatedProduct.price != null
+                                      ? "${relatedProduct.price} SAR"
+                                      : 'No price',
+                                  style: getMediumBlack12Style(),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 );
-              },
-            );
-          }).toList() ?? [],
+              }).toList() ??
+              [],
         ),
       ],
     );

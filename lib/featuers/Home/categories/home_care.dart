@@ -5,7 +5,7 @@ import 'package:maro/featuers/side_menu/Data/api_manger.dart';
 
 import '../../../core/theme/styles_manager.dart';
 
-void homeCare(BuildContext context, ApiManager apiManager){
+void homeCare(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
@@ -85,8 +85,6 @@ void homeCare(BuildContext context, ApiManager apiManager){
             sixthSubCategories(context, apiManager);
           },
         ),
-
-
       ]);
 }
 
@@ -163,11 +161,9 @@ void firstSubCategories(BuildContext context, ApiManager apiManager) {
             );
           },
         ),
-
-
-
       ]);
 }
+
 void secoundSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
@@ -190,11 +186,9 @@ void secoundSubCategories(BuildContext context, ApiManager apiManager) {
             );
           },
         ),
-
-
-
       ]);
 }
+
 void thirdSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
@@ -217,11 +211,9 @@ void thirdSubCategories(BuildContext context, ApiManager apiManager) {
             );
           },
         ),
-
-
-
       ]);
 }
+
 void fourthSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
@@ -244,11 +236,9 @@ void fourthSubCategories(BuildContext context, ApiManager apiManager) {
             );
           },
         ),
-
-
-
       ]);
 }
+
 void fifthSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
@@ -305,12 +295,9 @@ void fifthSubCategories(BuildContext context, ApiManager apiManager) {
             );
           },
         ),
-
-
-
-
       ]);
 }
+
 void sixthSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
@@ -350,14 +337,5 @@ void sixthSubCategories(BuildContext context, ApiManager apiManager) {
             );
           },
         ),
-
-
-
-
       ]);
 }
-
-
-
-
-

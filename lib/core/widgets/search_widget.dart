@@ -16,8 +16,8 @@ class SearchWidget extends StatefulWidget {
 
 class _SearchWidgetState extends State<SearchWidget> {
   final TextEditingController _searchController = TextEditingController();
-  final ApiSearch _apiSearch = ApiSearch(); 
-    final LanguageManagerAPi languageManager = LanguageManagerAPi();
+  final ApiSearch _apiSearch = ApiSearch();
+  final LanguageManagerAPi languageManager = LanguageManagerAPi();
 
   List<Product> _searchResults = [];
   bool _isLoading = false;
@@ -137,8 +137,10 @@ class _SearchWidgetState extends State<SearchWidget> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) =>
-                                  ProductsDetailsScreen(product: product, languageManager: languageManager,),
+                              builder: (_) => ProductsDetailsScreen(
+                                product: product,
+                                languageManager: languageManager,
+                              ),
                             ),
                           );
                         },

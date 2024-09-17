@@ -10,7 +10,7 @@ class AuthCubit extends Cubit<AuthState> {
   final SharedPreferences _preferences;
 
   AuthCubit(this._authService, this._preferences) : super(AuthInitial()) {
-    _checkAuthState(); // Check if the user is already logged in on app start
+    _checkAuthState();
   }
 
   Future<void> registerUser({
@@ -23,7 +23,7 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       await _authService.registerUser(
         userName: userName,
-        email: email,
+        email: userName,
         phoneNumber: phoneNumber,
         invitationBy: invitationBy,
       );
@@ -38,8 +38,12 @@ class AuthCubit extends Cubit<AuthState> {
       await _preferences.setString('userName', userName);
       await _preferences.setString('invitationBy', invitationBy);
 
-
-      emit(AuthSuccess(phoneNumber: phoneNumber, userName: userName, invtationCode: invitationBy));
+      emit(
+        AuthSuccess(
+            phoneNumber: phoneNumber,
+            userName: userName,
+            invtationCode: invitationBy),
+      );
     } catch (e) {
       emit(AuthFailure(e.toString()));
     }
@@ -57,7 +61,8 @@ class AuthCubit extends Cubit<AuthState> {
       await _preferences.setString('phoneNumber', phoneNumber);
       await _preferences.setString('userName', userName);
 
-      emit(AuthSuccess(phoneNumber: phoneNumber, userName: userName, invtationCode: ''));
+      emit(AuthSuccess(
+          phoneNumber: phoneNumber, userName: userName, invtationCode: ''));
     } catch (e) {
       emit(AuthFailure(e.toString()));
     }
@@ -85,8 +90,13 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> _checkAuthState() async {
     final String? phoneNumber = _preferences.getString('phoneNumber');
     final String? userName = _preferences.getString('userName');
-    if (phoneNumber != null && userName != null) {
-      emit(AuthSuccess(phoneNumber: phoneNumber, userName: userName, invtationCode: ''));
+    final String? invtationCode = _preferences.getString('invtationCode');
+
+    if (phoneNumber != null && userName != null && invtationCode != null) {
+      emit(AuthSuccess(
+          phoneNumber: phoneNumber,
+          userName: userName,
+          invtationCode: invtationCode));
     } else {
       emit(AuthInitial());
     }

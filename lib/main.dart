@@ -7,6 +7,7 @@ import 'package:maro/core/routes/app_routes.dart';
 import 'package:maro/featuers/Authentication/Data/auth_api_service.dart';
 import 'package:maro/featuers/Authentication/Data/cubit/auth_cubit.dart';
 import 'package:maro/featuers/Authentication/screens/profile_screen.dart';
+import 'package:maro/featuers/Authentication/screens/verification_screen.dart';
 import 'package:maro/featuers/Cart/Data/cart_api_manger.dart';
 import 'package:maro/featuers/Cart/bloc/cart_bloc.dart';
 import 'package:maro/featuers/Favourites/cubit.dart';
@@ -25,12 +26,12 @@ void main() async {
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE')],
-      path: 'assets/translation', 
+      path: 'assets/translation',
       fallbackLocale: const Locale('en', 'US'),
       child: MyApp(
         appRouter: AppRouter(apiManagerApplyCoupon: apiManager),
         apiManager: apiManager,
-        sharedPreferences: sharedPreferences, 
+        sharedPreferences: sharedPreferences,
       ),
     ),
   );
@@ -52,7 +53,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        
         BlocProvider<AuthCubit>(
           create: (context) => AuthCubit(AuthService(), sharedPreferences),
         ),
@@ -67,17 +67,16 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         useInheritedMediaQuery: true,
         builder: (context, child) => MaterialApp(
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: appRouter.generateRoute,
-          // home: const ProfileScreen(userName: 'Mustafa', phoneNumber: '01205542394'),
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
-          title: "Maro Cares",
-          theme: MyTheme.lightTheme,
-          darkTheme: MyTheme.darkTheme,
-          themeMode: ThemeMode.light,
-        ),
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: appRouter.generateRoute,
+            // home: const VerificationScreen(phoneNumber: '',),
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            title: "Maro Cares",
+            theme: MyTheme.lightTheme,
+            darkTheme: MyTheme.darkTheme,
+            themeMode: ThemeMode.light),
       ),
     );
   }
