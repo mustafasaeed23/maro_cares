@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:maro/featuers/Home/categories/widgets/products_categories_screen.dart';
 import 'package:maro/featuers/side_menu/Data/api_manger.dart';
 
-
 import '../../../core/theme/styles_manager.dart';
 
-void handCare(BuildContext context, ApiManager apiManager){
+void handCare(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
@@ -27,7 +26,7 @@ void handCare(BuildContext context, ApiManager apiManager){
               ],
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               handMoisturisingSubCategories(context, apiManager);
             },
             value: 1,
@@ -36,7 +35,7 @@ void handCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               nailsCareSubCategories(context, apiManager);
             },
             value: 2,
@@ -45,7 +44,7 @@ void handCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               handTreatmentSubCategories(context, apiManager);
             },
             value: 3,
@@ -53,22 +52,22 @@ void handCare(BuildContext context, ApiManager apiManager){
               "Hand Treatment".tr(),
               style: getMediumBlack16Style(),
             )),
-
-
       ]);
 }
 
-void handMoisturisingSubCategories(BuildContext context, ApiManager apiManager){
+void handMoisturisingSubCategories(
+    BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Moisturizing Gloves".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Moisturizing Gloves".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -77,15 +76,15 @@ void handMoisturisingSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Hand Cream".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hand Cream".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -94,15 +93,15 @@ void handMoisturisingSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Hand Lotion".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Hand Lotion".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -111,23 +110,23 @@ void handMoisturisingSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
       ]);
 }
-void nailsCareSubCategories(BuildContext context, ApiManager apiManager){
+
+void nailsCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Nail Moisturizer".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Nail Moisturizer".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -136,24 +135,23 @@ void nailsCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
       ]);
 }
-void handTreatmentSubCategories(BuildContext context, ApiManager apiManager){
+
+void handTreatmentSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Crack and Roughness Treatment".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Crack and Roughness Treatment".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -162,15 +160,15 @@ void handTreatmentSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Sweat Treatment".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Sweat Treatment".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -179,12 +177,7 @@ void handTreatmentSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
       ]);
 }
-
-
-

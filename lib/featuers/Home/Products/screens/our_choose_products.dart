@@ -19,7 +19,7 @@ class OurSelectionProducts extends StatefulWidget {
 }
 
 class _OurSelectionProductsState extends State<OurSelectionProducts> {
-    final LanguageManagerAPi languageManager = LanguageManagerAPi();
+  final LanguageManagerAPi languageManager = LanguageManagerAPi();
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,10 @@ class _OurSelectionProductsState extends State<OurSelectionProducts> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => ProductsDetailsScreen(product: product, languageManager: languageManager,),
+                      builder: (_) => ProductsDetailsScreen(
+                        product: product,
+                        languageManager: languageManager,
+                      ),
                     ),
                   );
                 },

@@ -5,7 +5,7 @@ import 'package:maro/featuers/side_menu/Data/api_manger.dart';
 
 import '../../../core/theme/styles_manager.dart';
 
-void accessories(BuildContext context,ApiManager apiManager){
+void accessories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
@@ -55,7 +55,6 @@ void accessories(BuildContext context,ApiManager apiManager){
             childAccessoriesSubCategories(context, apiManager);
           },
         ),
-
       ]);
 }
 
@@ -166,10 +165,11 @@ void menAccessoriesSubCategories(BuildContext context, ApiManager apiManager) {
             );
           },
         ),
-
       ]);
 }
-void womenAccessoriesSubCategories(BuildContext context, ApiManager apiManager) {
+
+void womenAccessoriesSubCategories(
+    BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
@@ -225,11 +225,11 @@ void womenAccessoriesSubCategories(BuildContext context, ApiManager apiManager) 
             );
           },
         ),
-
-
       ]);
 }
-void childAccessoriesSubCategories(BuildContext context, ApiManager apiManager) {
+
+void childAccessoriesSubCategories(
+    BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
@@ -404,10 +404,5 @@ void childAccessoriesSubCategories(BuildContext context, ApiManager apiManager) 
             );
           },
         ),
-
-
       ]);
 }
-
-
-

@@ -33,7 +33,9 @@ class _ProductCategoriesScreenState extends State<ProductCategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "",  ),
+      appBar: CustomAppBar(
+        title: "",
+      ),
       body: FutureBuilder<List<Product>>(
         future:
             widget.apiManager.getProductsByCategory(widget.category, 1, "ar"),
@@ -122,8 +124,10 @@ class _ProductCategoriesScreenState extends State<ProductCategoriesScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) =>
-                                      ProductsDetailsScreen(product: product, languageManager: languageManager,),
+                                  builder: (_) => ProductsDetailsScreen(
+                                    product: product,
+                                    languageManager: languageManager,
+                                  ),
                                 ),
                               );
                             },

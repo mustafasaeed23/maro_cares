@@ -3,14 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:maro/core/constence/Strings.dart';
 import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
-import 'package:maro/core/utils/validator.dart';
+import 'package:maro/core/widgets/custom_text_form_field.dart';
 import 'package:maro/featuers/Authentication/Data/cubit/auth_cubit.dart';
+import 'package:maro/featuers/Authentication/google_signIn/google_signIn_widget.dart';
 import 'package:maro/featuers/Authentication/screens/register_screen.dart';
+import 'package:maro/featuers/Authentication/screens/verification_screen.dart'; // Import verification screen
 
 class LoginScreen extends StatefulWidget {
   static const String routeName = 'login';
+
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -59,18 +64,15 @@ class _LoginScreenState extends State<LoginScreen> {
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccess) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Login Successful!')),
-            );
+            _navigateToVerificationScreen(
+                context); // Updated to navigate to verification
           } else if (state is AuthFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.error)),
-            );
+            _showFailureDialog(context, state.error);
           }
         },
         builder: (context, state) {
           if (state is AuthLoading) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
           return Form(
             key: _formKey,
@@ -84,57 +86,41 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 250.w,
                     ),
                   ),
+                  SizedBox(height: 20.h),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
                     child: Row(
                       children: [
-                        const Icon(
-                          Icons.phone_android_rounded,
-                          size: 30,
-                        ),
-                        SizedBox(
-                          width: 8.w,
-                        ),
-                        Container(
-                          width: 290.w,
-                          child: TextFormField(
-                            keyboardType: TextInputType.phone,
+                        Expanded(
+                          flex: 6,
+                          child: CustomTextFormField(
                             controller: _phoneNumberController,
-                            decoration: InputDecoration(
-                              alignLabelWithHint: true,
-                              label: Text("Phone No.".tr()),
-                              labelStyle: getBoldBlack16Style(),
-                              fillColor: MyTheme.ColorContainer,
-                              enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.deepPurple),
-                                borderRadius: BorderRadius.circular(15.r),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.deepPurple),
-                                borderRadius: BorderRadius.circular(15.r),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.deepPurple),
-                                borderRadius: BorderRadius.circular(15.r),
-                              ),
-                            ),
-                            // validator: (value) {
-                            //   if (!Validator.isSaudiPhoneNumber(value)) {
-                            //     return "Please Enter valid Number";
-                            //   }
-                            //   return null;
-                            // },
+                            inputType: TextInputType.number,
+                            width: 200.w,
+                            validator: (text) {
+                              if (text == null || text.trim().isEmpty) {
+                                return "Enter Phone Number".tr();
+                              }
+                              if (text.length < 9) {
+                                return "Wrong Phone Number, should contain 9 numbers"
+                                    .tr();
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 10.w),
+                        Expanded(
+                          flex: 2,
+                          child: CustomTextFormField(
+                            text: "+966",
+                            width: 130.w,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
+                  SizedBox(height: 30.h),
                   SizedBox(
                     height: 45.h,
                     width: 300.w,
@@ -146,6 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         if (_formKey.currentState?.validate() == true) {
                           context.read<AuthCubit>().loginUser(
                                 phoneNumber: _phoneNumberController.text,
+                                userName: '',
                               );
                         }
                       },
@@ -155,9 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
+                  SizedBox(height: 20.h),
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, RegisterScreen.routeName);
@@ -167,26 +152,43 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: getBoldBlue16Style(),
                     ),
                   ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  SizedBox(
-                    width: 210.w,
-                    height: 50.h,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Sign in with Google",
-                        style: getBoldBlue14Style(),
-                      ),
-                    ),
-                  ),
+                  SizedBox(height: 50.h),
+                  const GoogleSigninWidget(),
                 ],
               ),
             ),
           );
         },
       ),
+    );
+  }
+
+  // Navigate to verification screen after successful login
+  void _navigateToVerificationScreen(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      verificationScreen,
+      arguments: _phoneNumberController.text,
+    );
+  }
+
+  void _showFailureDialog(BuildContext context, String errorMessage) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Error".tr()),
+          content: Text(errorMessage),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

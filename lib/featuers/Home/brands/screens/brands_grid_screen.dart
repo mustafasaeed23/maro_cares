@@ -8,7 +8,7 @@ import 'package:maro/featuers/Home/brands/screens/brands_screen_list.dart';
 
 class BrandsGridScreen extends StatelessWidget {
   static const String routeName = 'brnads_Grid';
-final LanguageManagerAPi languageManager = LanguageManagerAPi();
+  final LanguageManagerAPi languageManager = LanguageManagerAPi();
   final List<String> brandNamesList = [
     "Afle",
     "La Roche posay",
@@ -167,15 +167,15 @@ final LanguageManagerAPi languageManager = LanguageManagerAPi();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "All Brands"),
+      appBar: CustomAppBar(title: "All Brands".tr()),
       // CustomAppBar("All Brands", context),
       body: GridView.builder(
         padding: EdgeInsets.all(12.w),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          crossAxisSpacing: 10.w, 
-          mainAxisSpacing: 10.h, 
-          childAspectRatio: 1.2, 
+          crossAxisSpacing: 10.w,
+          mainAxisSpacing: 10.h,
+          childAspectRatio: 1.2,
         ),
         itemCount: brandNamesList.length,
         itemBuilder: (context, index) {

@@ -1,4 +1,3 @@
-
 class ProductsDetailsModel {
   String? message;
   Product? product;
@@ -8,7 +7,8 @@ class ProductsDetailsModel {
 
   ProductsDetailsModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
-    product = json['product'] != null ? Product.fromJson(json['product']) : null;
+    product =
+        json['product'] != null ? Product.fromJson(json['product']) : null;
     if (json['relatedProducts'] != null) {
       relatedProducts = <RelatedProducts>[];
       json['relatedProducts'].forEach((v) {
@@ -24,7 +24,8 @@ class ProductsDetailsModel {
       data['product'] = product!.toJson();
     }
     if (relatedProducts != null) {
-      data['relatedProducts'] = relatedProducts!.map((v) => v.toJson()).toList();
+      data['relatedProducts'] =
+          relatedProducts!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -40,10 +41,10 @@ class Product {
   bool? outOfStock;
   int? totalRating;
   List<String>? images;
-  List<String>? colors; 
+  List<String>? colors;
   int? iV;
   int? discountPercentage;
-  List<String>? filter; 
+  List<String>? filter;
   String? productName;
   String? description;
   String? category;
@@ -122,9 +123,9 @@ class RelatedProducts {
   bool? outOfStock;
   int? totalRating;
   List<String>? images;
-  List<String>? colors; 
+  List<String>? colors;
   int? iV;
-  List<String>? filter; 
+  List<String>? filter;
   String? productName;
   String? description;
   String? category;
@@ -159,9 +160,9 @@ class RelatedProducts {
     outOfStock = json['outOfStock'];
     totalRating = json['totalRating'];
     images = json['images']?.cast<String>();
-    colors = json['colors']?.cast<String>(); 
+    colors = json['colors']?.cast<String>();
     iV = json['__v'];
-    filter = json['filter']?.cast<String>(); 
+    filter = json['filter']?.cast<String>();
     productName = json['productName'];
     description = json['description'];
     category = json['category'];

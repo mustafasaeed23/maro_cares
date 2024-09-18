@@ -1,13 +1,17 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:maro/featuers/Authentication/Data/auth_api_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   final AuthService _authService;
+  final SharedPreferences _preferences;
 
-  AuthCubit(this._authService) : super(AuthInitial());
+  AuthCubit(this._authService, this._preferences) : super(AuthInitial()) {
+    _checkAuthState();
+  }
 
   Future<void> registerUser({
     required String userName,
@@ -21,32 +25,44 @@ class AuthCubit extends Cubit<AuthState> {
         userName: userName,
         email: userName,
         phoneNumber: phoneNumber,
-        invitationBy: phoneNumber,
+        invitationBy: invitationBy,
       );
 
-        await _authService.verifyAccount(
+      await _authService.verifyAccount(
         phoneNumber: phoneNumber,
         code: '', // OTP code will be handled in the verification screen
       );
 
-      emit(AuthSuccess(phoneNumber: phoneNumber));
+      // Save the phone number and username in shared preferences
+      await _preferences.setString('phoneNumber', phoneNumber);
+      await _preferences.setString('userName', userName);
+      await _preferences.setString('invitationBy', invitationBy);
+
+      emit(
+        AuthSuccess(
+            phoneNumber: phoneNumber,
+            userName: userName,
+            invtationCode: invitationBy),
+      );
     } catch (e) {
       emit(AuthFailure(e.toString()));
     }
   }
 
-  
   Future<void> loginUser({
     required String phoneNumber,
+    required String userName,
   }) async {
     emit(AuthLoading());
     try {
       await _authService.loginUser(phoneNumber: phoneNumber);
 
-      // Request to resend verification code after login
-      await _authService.resendVerificationCode(phoneNumber: phoneNumber);
+      // Save the phone number and username in shared preferences
+      await _preferences.setString('phoneNumber', phoneNumber);
+      await _preferences.setString('userName', userName);
 
-      emit(AuthSuccess(phoneNumber: phoneNumber));
+      emit(AuthSuccess(
+          phoneNumber: phoneNumber, userName: userName, invtationCode: ''));
     } catch (e) {
       emit(AuthFailure(e.toString()));
     }
@@ -62,6 +78,27 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthVerificationSuccess());
     } catch (e) {
       emit(AuthFailure(e.toString()));
+    }
+  }
+
+  Future<void> logout() async {
+    await _preferences.remove('phoneNumber'); // Remove saved state
+    await _preferences.remove('userName'); // Remove saved username
+    emit(AuthInitial());
+  }
+
+  Future<void> _checkAuthState() async {
+    final String? phoneNumber = _preferences.getString('phoneNumber');
+    final String? userName = _preferences.getString('userName');
+    final String? invtationCode = _preferences.getString('invtationCode');
+
+    if (phoneNumber != null && userName != null && invtationCode != null) {
+      emit(AuthSuccess(
+          phoneNumber: phoneNumber,
+          userName: userName,
+          invtationCode: invtationCode));
+    } else {
+      emit(AuthInitial());
     }
   }
 }

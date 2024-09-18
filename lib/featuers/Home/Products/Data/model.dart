@@ -118,4 +118,3 @@ class Product {
     return data;
   }
 }
-

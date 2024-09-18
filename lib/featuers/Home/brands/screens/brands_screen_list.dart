@@ -101,8 +101,10 @@ class _BrandsScreenListState extends State<BrandsScreenList> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) =>
-                                      ProductsDetailsScreen(product: product, languageManager: languageManager,),
+                                  builder: (_) => ProductsDetailsScreen(
+                                    product: product,
+                                    languageManager: languageManager,
+                                  ),
                                 ),
                               );
                             },
@@ -188,7 +190,7 @@ class _BrandsScreenListState extends State<BrandsScreenList> {
                                 },
                                 child: Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.shopping_cart,
                                       color: Colors.white,
                                       size: 15,

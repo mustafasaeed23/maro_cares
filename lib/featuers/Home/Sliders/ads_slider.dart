@@ -6,13 +6,17 @@ class AdsSlider extends StatelessWidget {
   AdsSlider({super.key});
   final items = [
     ShoppingAds(
-      imagePath: "assets/images/bodycare.jpg", 
-      title: 'Body Care',),
-    ShoppingAds(imagePath: "assets/images/Skincare.jpg",
-     title: 'Skin Care ',),
-   ShoppingAds(imagePath: "assets/images/suncare.jpg",
-    title: 'Sun Care',),
-
+      imagePath: "assets/images/bodycare.jpg",
+      title: 'Body Care',
+    ),
+    ShoppingAds(
+      imagePath: "assets/images/Skincare.jpg",
+      title: 'Skin Care ',
+    ),
+    ShoppingAds(
+      imagePath: "assets/images/suncare.jpg",
+      title: 'Sun Care',
+    ),
   ];
 
   @override

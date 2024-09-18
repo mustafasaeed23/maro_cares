@@ -15,15 +15,16 @@ import 'package:maro/core/theme/styles_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class HomeScreenActivity extends StatelessWidget {
-   HomeScreenActivity({super.key});
-    final LanguageManagerAPi languageManager = LanguageManagerAPi();
-
+  HomeScreenActivity({super.key});
+  final LanguageManagerAPi languageManager = LanguageManagerAPi();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      appBar: CustomAppBar(title: "",),
+      appBar: CustomAppBar(
+        title: "",
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -40,7 +41,7 @@ class HomeScreenActivity extends StatelessWidget {
               SizedBox(
                 height: 35.h,
               ),
-              const CategoriesWidget(),
+              const Categories(),
               SizedBox(
                 height: 30.h,
               ),

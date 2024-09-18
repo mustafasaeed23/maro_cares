@@ -5,7 +5,7 @@ import 'package:maro/featuers/side_menu/Data/api_manger.dart';
 
 import '../../../core/theme/styles_manager.dart';
 
-void mouthCare(BuildContext context, ApiManager apiManager){
+void mouthCare(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
@@ -26,7 +26,7 @@ void mouthCare(BuildContext context, ApiManager apiManager){
               ],
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               toothCareSubCategories(context, apiManager);
             },
             value: 1,
@@ -35,7 +35,7 @@ void mouthCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               gumsCareSubCategories(context, apiManager);
             },
             value: 2,
@@ -44,7 +44,7 @@ void mouthCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               mouthFresherSubCategories(context, apiManager);
             },
             value: 3,
@@ -53,7 +53,7 @@ void mouthCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               toothWhiteningSubCategories(context, apiManager);
             },
             value: 4,
@@ -62,7 +62,7 @@ void mouthCare(BuildContext context, ApiManager apiManager){
               style: getMediumBlack16Style(),
             )),
         PopupMenuItem(
-            onTap: (){
+            onTap: () {
               lipsCareSubCategories(context, apiManager);
             },
             value: 5,
@@ -70,21 +70,21 @@ void mouthCare(BuildContext context, ApiManager apiManager){
               "Lips Care".tr(),
               style: getMediumBlack16Style(),
             )),
-
       ]);
 }
 
-void toothCareSubCategories(BuildContext context, ApiManager apiManager){
+void toothCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Toothpaste".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Toothpaste".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -93,15 +93,15 @@ void toothCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Toothbrush".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Toothbrush".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -110,15 +110,15 @@ void toothCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Dental Floss".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Dental Floss".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -127,15 +127,15 @@ void toothCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 3,
-          child: Text("Toothpick".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Toothpick".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -144,23 +144,23 @@ void toothCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
       ]);
 }
-void gumsCareSubCategories(BuildContext context, ApiManager apiManager){
+
+void gumsCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Mouthwash".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Mouthwash".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -169,15 +169,15 @@ void gumsCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Water Flosser".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Water Flosser".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -186,24 +186,23 @@ void gumsCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
       ]);
 }
-void mouthFresherSubCategories(BuildContext context, ApiManager apiManager){
+
+void mouthFresherSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Mouth Spray".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Mouth Spray".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -212,15 +211,15 @@ void mouthFresherSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
         PopupMenuItem(
           value: 1,
-          child: Text("Chewing Gum".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Chewing Gum".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -229,24 +228,23 @@ void mouthFresherSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
       ]);
 }
-void toothWhiteningSubCategories(BuildContext context, ApiManager apiManager){
+
+void toothWhiteningSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Teeth Whitening Masks".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Teeth Whitening Masks".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -255,24 +253,23 @@ void toothWhiteningSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
       ]);
 }
-void lipsCareSubCategories(BuildContext context, ApiManager apiManager){
+
+void lipsCareSubCategories(BuildContext context, ApiManager apiManager) {
   showMenu(
       context: context,
       position: const RelativeRect.fromLTRB(40, 40, 40, 40),
       items: [
         PopupMenuItem(
           value: 0,
-          child: Text("Lip Balm".tr(),
-            style: getMediumBlack16Style() ,
+          child: Text(
+            "Lip Balm".tr(),
+            style: getMediumBlack16Style(),
           ),
-          onTap: (){
+          onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProductCategoriesScreen(
@@ -281,15 +278,7 @@ void lipsCareSubCategories(BuildContext context, ApiManager apiManager){
                 ),
               ),
             );
-
           },
         ),
-
-
       ]);
 }
-
-
-
-
-

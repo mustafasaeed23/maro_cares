@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:maro/core/constence/Strings.dart';
 import 'package:maro/core/theme/my_theme.dart';
 import 'package:maro/core/theme/styles_manager.dart';
-import 'package:maro/core/utils/validator.dart';
 import 'package:maro/featuers/Authentication/Data/cubit/auth_cubit.dart';
 import 'package:maro/featuers/Authentication/screens/login_screen.dart';
-import 'package:maro/featuers/Authentication/screens/verfication_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const String routeName = 'Create_Account';
+
+  const RegisterScreen({super.key});
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -20,6 +21,8 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   final _userNameController = TextEditingController();
   final _mobileNumberController = TextEditingController();
+  final _invatationByController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -63,9 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           if (state is AuthSuccess) {
             _showSuccessDialog(context, state.phoneNumber);
           } else if (state is AuthFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.error)),
-            );
+            _showFailureDialog(context, state.error);
           }
         },
         builder: (context, state) {
@@ -96,7 +97,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         SizedBox(
                           width: 8.w,
                         ),
-                        Container(
+                        SizedBox(
                           width: 290.w,
                           child: TextFormField(
                             keyboardType: TextInputType.name,
@@ -124,7 +125,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return "UserName can't be empty";
+                                return "UserName can't be empty".tr();
                               }
                               return null;
                             },
@@ -147,7 +148,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         SizedBox(
                           width: 8.w,
                         ),
-                        Container(
+                        SizedBox(
                           width: 290.w,
                           child: TextFormField(
                             keyboardType: TextInputType.phone,
@@ -173,13 +174,68 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 borderRadius: BorderRadius.circular(15.r),
                               ),
                             ),
+                            validator: (text) {
+                              if (text == null || text.trim().isEmpty) {
+                                return "Enter Phone Number".tr();
+                              }
+                              if (text.length < 9) {
+                                return "Wrong Phone Number, should contain 9 numbers"
+                                    .tr();
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: 15.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.code,
+                          size: 30,
+                        ),
+                        SizedBox(
+                          width: 8.w,
+                        ),
+                        SizedBox(
+                          width: 290.w,
+                          child: TextFormField(
+                            keyboardType: TextInputType.phone,
+                            controller: _invatationByController,
+                            decoration: InputDecoration(
+                              alignLabelWithHint: true,
+                              label: Text("InvationBy".tr()),
+                              labelStyle: getBoldBlack16Style(),
+                              fillColor: MyTheme.ColorContainer,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Colors.deepPurple),
+                                borderRadius: BorderRadius.circular(15.r),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Colors.deepPurple),
+                                borderRadius: BorderRadius.circular(15.r),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Colors.deepPurple),
+                                borderRadius: BorderRadius.circular(15.r),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.h,
                   ),
                   SizedBox(
                     height: 45.h,
@@ -194,7 +250,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 userName: _userNameController.text,
                                 email: '',
                                 phoneNumber: _mobileNumberController.text,
-                                invitationBy: '',
+                                invitationBy: _invatationByController.text,
                               );
                         }
                       },
@@ -219,17 +275,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   SizedBox(
                     height: 30.h,
                   ),
-                  SizedBox(
-                    width: 210.w,
-                    height: 50.h,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Sign in with Google",
-                        style: getBoldBlue14Style(),
-                      ),
-                    ),
-                  ),
+                  // SizedBox(
+                  //   width: 210.w,
+                  //   height: 50.h,
+                  //   child: ElevatedButton(
+                  //     onPressed: () {},
+                  //     child: Text(
+                  //       "Sign in with Google",
+                  //       style: getBoldBlue14Style(),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -244,19 +300,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title:  Text("Registration Successful".tr()),
-          content:  Text("Please check your phone for the OTP.".tr()),
+          title: Text("Registration Successful".tr()),
+          content: Text("Please check your phone for the OTP.".tr()),
           actions: [
             TextButton(
               onPressed: () {
-                // Navigator.of(context).pop();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => VerificationScreen(phoneNumber: phoneNumber,),
-                    ),
-                  );
-               
+                // Navigator.of(context).pushNamed(profileUserScreen, arguments: {
+                //   'userName': _userNameController.text,
+                //   'phoneNumber': phoneNumber,
+                // });
+                Navigator.of(context)
+                    .pushNamed(verificationScreen, arguments: phoneNumber);
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showFailureDialog(BuildContext context, String errorMessage) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Registration Failed".tr()),
+          content: Text(errorMessage
+              .tr()), // Assuming `errorMessage` is already translated
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
               },
               child: const Text('OK'),
             ),

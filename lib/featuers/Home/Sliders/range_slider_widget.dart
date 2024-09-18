@@ -18,7 +18,7 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
     );
     return Center(
       child: RangeSlider(
-        activeColor: MyTheme.mainPrimaryColor4,
+          activeColor: MyTheme.mainPrimaryColor4,
           values: values,
           divisions: 10,
           min: 0,

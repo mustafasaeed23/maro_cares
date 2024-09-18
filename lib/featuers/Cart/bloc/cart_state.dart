@@ -6,28 +6,33 @@ class CartState extends Equatable {
   final Map<String, int> productCounts;
   final double discount;
   final String couponMessage;
+  final bool couponApplied;
 
   CartState({
     required this.cartItems,
     required this.productCounts,
     this.discount = 0.0,
     this.couponMessage = '',
+    this.couponApplied = false,
   });
 
   @override
-  List<Object> get props => [cartItems, productCounts, discount, couponMessage];
+  List<Object> get props =>
+      [cartItems, productCounts, discount, couponMessage, couponApplied];
 
   CartState copyWith({
     List<Product>? cartItems,
     Map<String, int>? productCounts,
     double? discount,
     String? couponMessage,
+    bool? couponApplied, // Add this parameter
   }) {
     return CartState(
       cartItems: cartItems ?? this.cartItems,
       productCounts: productCounts ?? this.productCounts,
       discount: discount ?? this.discount,
       couponMessage: couponMessage ?? this.couponMessage,
+      couponApplied: couponApplied ?? this.couponApplied, // Update this field
     );
   }
 }

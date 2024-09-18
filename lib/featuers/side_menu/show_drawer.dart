@@ -71,7 +71,6 @@ class _ShowDrawerState extends State<ShowDrawer> {
                   onTap: () {
                     skinCare(context, apiManager);
                   },
-
                 ),
                 PopupMenuItem<int>(
                   value: 1,
@@ -88,13 +87,13 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
+                  onTap: () {
                     bodyCare(context, apiManager);
                   },
                 ),
                 PopupMenuItem<int>(
                   onTap: () {
-                  makeUp(context,apiManager);
+                    makeUp(context, apiManager);
                   },
                   value: 2,
                   child: Column(
@@ -126,8 +125,8 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
-                    hairCare(context,apiManager);
+                  onTap: () {
+                    hairCare(context, apiManager);
                   },
                 ),
                 PopupMenuItem<int>(
@@ -145,7 +144,7 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
+                  onTap: () {
                     mouthCare(context, apiManager);
                   },
                 ),
@@ -164,8 +163,8 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
-                    handCare(context,apiManager);
+                  onTap: () {
+                    handCare(context, apiManager);
                   },
                 ),
                 PopupMenuItem<int>(
@@ -183,7 +182,7 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
+                  onTap: () {
                     footCare(context, apiManager);
                   },
                 ),
@@ -202,8 +201,8 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
-                    careForMomAndChild(context,apiManager);
+                  onTap: () {
+                    careForMomAndChild(context, apiManager);
                   },
                 ),
                 PopupMenuItem<int>(
@@ -221,8 +220,8 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
-                    accessories(context,apiManager);
+                  onTap: () {
+                    accessories(context, apiManager);
                   },
                 ),
                 PopupMenuItem<int>(
@@ -240,8 +239,8 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
-                    perfumes(context,apiManager);
+                  onTap: () {
+                    perfumes(context, apiManager);
                   },
                 ),
                 PopupMenuItem<int>(
@@ -259,8 +258,8 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
-                    medicalProducts(context,apiManager);
+                  onTap: () {
+                    medicalProducts(context, apiManager);
                   },
                 ),
                 PopupMenuItem<int>(
@@ -278,8 +277,8 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
-                    homeCare(context,apiManager);
+                  onTap: () {
+                    homeCare(context, apiManager);
                   },
                 ),
                 PopupMenuItem<int>(
@@ -297,8 +296,8 @@ class _ShowDrawerState extends State<ShowDrawer> {
                       ),
                     ],
                   ),
-                  onTap: (){
-                    electronicDevices(context,apiManager);
+                  onTap: () {
+                    electronicDevices(context, apiManager);
                   },
                 ),
               ]);
@@ -309,5 +308,3 @@ class _ShowDrawerState extends State<ShowDrawer> {
     );
   }
 }
-
-

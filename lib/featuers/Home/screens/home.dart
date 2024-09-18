@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
-  final tabs =  [
+  final tabs = [
     HomeScreenActivity(),
     const CartScreen(),
     FavoriteScreen(),
@@ -26,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       
       bottomNavigationBar: NavigationBarTheme(
         data: Theme.of(context).navigationBarTheme,
         child: NavigationBar(
@@ -45,9 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: IndexedStack(
-        index: currentIndex,
-        children: tabs),
+      body: IndexedStack(index: currentIndex, children: tabs),
     );
   }
 }
